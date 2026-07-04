@@ -1,0 +1,30 @@
+# AI Chaos Scout — the RUNTIME is stdlib-only (Python 3.10+); it needs NO installed
+# dependencies (hard constraint: corporate proxies break pip). This file exists only to
+# (a) make `scout` importable as a package and (b) configure optional dev tooling
+# (ruff, pytest) for contributors. None of it is required to run the pipeline.
+
+[project]
+name = "ai-chaos-scout"
+version = "0.1.0"
+description = "Agent-driven, keyless weekly chaos-briefing scout — a repo, not a service."
+requires-python = ">=3.10"
+dependencies = []  # runtime: stdlib only, on purpose.
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+dev = ["ruff", "pytest"]
+
+[tool.setuptools.packages.find]
+include = ["scout*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+# Keep it light; the runtime is deliberately plain stdlib.
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # long doc/spec lines in module docstrings are fine.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.ruff_cache/
+.pytest_cache/
+
+# Secrets — never commit keys (Gemini, Composio custom OAuth, Tier-1 adapters)
+.env
+.env.*
+!.env.example
+
+# Subject material is fetched/cloned locally per-run, not committed.
+# (Large repos, saved pages, dropped docs.)
+subject/*
+!subject/.gitkeep
+
+# Editor / OS cruft
+.DS_Store
+.idea/
+.vscode/
+
+# NOTE: state/, runs/, and reports/ are intentionally NOT ignored — repo-local
+# state is the product's memory and is versionable/inspectable. To ship a warm
+# "morning run" for offline demo replay, commit its runs/{date}/ + reports/ files.

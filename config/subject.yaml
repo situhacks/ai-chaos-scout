@@ -1,0 +1,25 @@
+# config/subject.yaml — the target company/project AI Chaos Scout studies.
+#
+# Fill in ANY combination of the three input types below, then run /chaos-run.
+# Leave a field empty to skip it. Stage 1 (/chaos-lens) ingests everything listed
+# here into subject/, builds knowledge/project-summary.md, and distills the lens.
+#
+# NOTE: subject is intentionally UNSET for now — the operator names the demo
+# subject before the first real run (README "Before the first run").
+
+subject:
+  name: ""                 # display name, e.g. "Acme AI"  (used in the report subject line)
+
+  # Public product pages / docs / blog posts. The agent fetches each and saves a
+  # copy under subject/ for grounding.
+  urls: []
+  # - "https://example.com"
+  # - "https://example.com/blog/strategy"
+
+  # A public GitHub repo. Stage 1 clones it into subject/{name}/ and the IDE agent
+  # reads it directly (README, docs/, strategy files) — no Greptile in the keyless path.
+  repo: ""                 # e.g. "owner/repo"
+
+  # A local directory of docs/transcripts/plans dropped in by the operator
+  # (the future SharePoint payload, minus SharePoint). Read in place.
+  folder: ""               # e.g. "subject/acme-docs"

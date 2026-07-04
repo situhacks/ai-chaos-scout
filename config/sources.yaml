@@ -1,0 +1,48 @@
+# config/sources.yaml — Tier-2 whitelist (keyless, ENABLED) + Tier-1 adapters (enabled: false).
+#
+# Tier 2 works with ZERO API keys / signups / paid services (hard constraint).
+# Stage 1 (/chaos-lens) appends lens-derived values to reddit_rss, github_watchlist,
+# and hn_queries — that is where lens-first scoping becomes visible.
+
+tier2:
+  # RSS/Atom feeds — the backbone. Keyless, cache-friendly (ETag/If-Modified-Since).
+  rss:
+    - {id: openai, url: "https://openai.com/news/rss.xml"}
+    - {id: huggingface, url: "https://huggingface.co/blog/feed.xml"}
+    - {id: googleai, url: "https://blog.google/technology/ai/rss/"}
+    - {id: arxiv_csai, url: "https://rss.arxiv.org/rss/cs.AI"}   # empty on weekends/US holidays = normal
+    - {id: marktechpost, url: "https://www.marktechpost.com/feed/"}
+
+  # Reddit via RSS only (.json is 403 to scripts). Least reliable source:
+  # 1 req/sub/run, >=2s spacing, 429 = soft-fail skip. Stage 1 may append lens-derived subs.
+  reddit_rss:
+    - MachineLearning
+    - LocalLLaMA
+
+  # GitHub releases/tags to poll (unauth, 60 req/hr/IP, ETag-gated). "owner/repo".
+  # Seeded by Stage 1 from the lens tech watchlist. Cap ~25.
+  github_watchlist: []
+
+  # Hacker News (Algolia) search queries — SEEDED BY STAGE 1 from lens query terms.
+  # ~10,000 req/hr/IP; the most generous source.
+  hn_queries: []
+
+  # OSSInsight trending languages (keyless, 600 req/hr/IP, beta).
+  ossinsight_languages:
+    - Python
+    - TypeScript
+
+  # GitHub Trending languages (best-effort HTML scrape; may break silently).
+  trending_languages:
+    - python
+
+  # YouTube channel Atom feeds — channel_ids (NOT handles). Optional; resolve once.
+  youtube_channels: []
+
+# Tier 1 — keyed/paid adapter SCAFFOLDS. ALL enabled: false, ALL UNTESTED.
+# Built to prove the architecture extends to the enterprise version; never exercised.
+tier1:
+  x_api:        {enabled: false}   # X API v2 pay-per-read; free tier died Feb 2026
+  reddit_oauth: {enabled: false}   # official OAuth, 100 QPM; upgrade path
+  greptile:     {enabled: false}   # repo-understanding API; replaces direct agent reads at scale
+  msgraph:      {enabled: false}   # Graph/SharePoint; keep Item shape == folder: ingestion
