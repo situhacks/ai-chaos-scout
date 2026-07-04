@@ -6,9 +6,10 @@ duplicating instructions:
 
 @AGENTS.md
 
-Everything above (role, the non-negotiable grounding rule, the scripts-fetch/you-judge
-division of labor, the three-stage `/chaos-*` pipeline, the state-file map, the
-degradation ladder, and the hard constraints) applies verbatim to Claude Code.
+Everything above (role, the non-negotiable grounding rule, the self-check procedure,
+the scripts-fetch/you-judge division of labor, the three-stage `/chaos-*` pipeline,
+the state-file map, the degradation ladder, and the hard constraints) applies verbatim
+to Claude Code.
 
 ## Claude Code specifics
 
@@ -20,3 +21,8 @@ degradation ladder, and the hard constraints) applies verbatim to Claude Code.
   path. Run `python scout/run_scout.py` and `python scout/render_report.py` directly.
 - Do not edit files under `.cursor/` unless explicitly asked; in enterprise setups that
   directory is human-committed and may be read-only to the agent.
+- The `report.json` you produce in Stage 3 must match the `ReportModel` dataclasses in
+  `scout/render_report.py` exactly — see `AGENTS.md` § Stage 3 for the full JSON shape.
+- **Composio is optional.** If Composio MCP is unavailable, the pipeline still
+  produces all three report artifacts (`.md`, `.html`, `.eml`). The `.eml` is the
+  zero-dependency delivery fallback.
