@@ -55,6 +55,26 @@ a Gmail draft. This is the ONLY action that runs as part of the standard pipelin
   runs.
 - `subject` — use the `subject_line` field from `report.json` verbatim.
 
+### Reproducible helper: `tools/composio_draft.py`
+
+A stdlib-only MCP client (no pip) that performs the draft beat deterministically for
+CI/headless runs. This MCP surface exposes Composio **meta-tools**, so the helper runs
+`GMAIL_CREATE_EMAIL_DRAFT` through `COMPOSIO_MULTI_EXECUTE_TOOL` after the
+`initialize` → `notifications/initialized` handshake.
+
+```bash
+export COMPOSIO_MCP_URL=https://connect.composio.dev/mcp
+export COMPOSIO_MCP_KEY=<your ck_ key>          # keep out of git
+python3 tools/composio_draft.py --list          # inspect available meta-tools
+python3 tools/composio_draft.py \
+  --html reports/chaos-report-2026-07-04.html \
+  --subject "$(python3 -c 'import json;print(json.load(open("runs/2026-07-04/report.json"))["subject_line"])')" \
+  --to you@example.com
+```
+
+Draft-only by construction — it never calls `GMAIL_SEND_*`. The key is read from env,
+never hard-coded.
+
 ### Fallback when Composio is absent
 
 The `.eml` file (`reports/chaos-report-{date}.eml`) is always produced by the renderer
