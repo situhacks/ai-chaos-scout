@@ -18,14 +18,46 @@ tier2:
   reddit_rss:
     - MachineLearning
     - LocalLLaMA
+    - CRM
+    - SaaS
 
   # GitHub releases/tags to poll (unauth, 60 req/hr/IP, ETag-gated). "owner/repo".
   # Seeded by Stage 1 from the lens tech watchlist. Cap ~25.
-  github_watchlist: []
+  github_watchlist:
+    - twentyhq/twenty
+    - nestjs/nest
+    - typeorm/typeorm
+    - graphql/graphql-js
+    - facebook/react
+    - pmndrs/jotai
+    - lingui/js-lingui
+    - redis/redis
+    - vercel/next.js
+    - vercel/ai
+    - langchain-ai/langchainjs
+    - run-llama/llama_index
+    - modelcontextprotocol/servers
+    - n8n-io/n8n
+    - calcom/cal.com
+    - documenso/documenso
+    - supabase/supabase
+    - pgvector/pgvector
+    - ollama/ollama
+    - browser-use/browser-use
 
   # Hacker News (Algolia) search queries — SEEDED BY STAGE 1 from lens query terms.
   # ~10,000 req/hr/IP; the most generous source.
-  hn_queries: []
+  hn_queries:
+    - open source CRM
+    - AI CRM
+    - CRM agents
+    - AI sales automation
+    - AI data enrichment
+    - LLM workflow automation
+    - text to SQL
+    - Salesforce alternative
+    - AI agent tools
+    - model context protocol
 
   # OSSInsight trending languages (keyless, 600 req/hr/IP, beta).
   ossinsight_languages:
@@ -38,6 +70,16 @@ tier2:
 
   # YouTube channel Atom feeds — channel_ids (NOT handles). Optional; resolve once.
   youtube_channels: []
+
+# Recency windowing — how far back a scout run looks.
+# First run casts wide (a full year) so the opening report has real context;
+# every later run is a tight 14-day chunk that (with state/seen.json) never
+# re-surfaces prior findings. First vs future is auto-detected from state, or
+# forced with `--first-run` / `--window-days N`.
+research:
+  first_run_lookback_days: 365   # broad opening sweep
+  future_run_days: 14            # tight incremental chunk (no overlap w/ prior runs)
+  focus_days: 7                  # items newer than this count as "recent" for weighting
 
 # Tier 1 — keyed/paid adapter SCAFFOLDS. ALL enabled: false, ALL UNTESTED.
 # Built to prove the architecture extends to the enterprise version; never exercised.

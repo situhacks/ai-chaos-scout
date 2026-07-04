@@ -15,13 +15,30 @@ the disruption slider and the narrative obligation.
 
 ## Disruption levels (the chaos meter → metamorphosis stages)
 
-| Level | Meaning | Track | Stage glyph |
-|---|---|---|---|
-| 1 | Incremental — tune an existing feature/process | A | egg |
-| 2 | Adjacent — new feature/channel on the current product | A | larva |
-| 3 | New line — a distinct product the current org could ship | B | chrysalis |
-| 4 | Model shift — changed business model, pricing, or GTM | B | emergence |
-| 5 | Metamorphosis — identity-level pivot; a different animal emerges | B | imago |
+The level is also a **realism ladder** — how much of the company each play actually
+bets. Most chaos should be *product/feature-scoped and reversible*; only rarely is a
+play worth betting the whole company on.
+
+| Level | Meaning | Scope of the bet | Track | Stage glyph |
+|---|---|---|---|---|
+| 1 | Incremental — tune an existing feature/process | tweak an existing surface | A | egg |
+| 2 | Adjacent — new feature/channel on the current product | feature-level bet | A | larva |
+| 3 | New line — a distinct product/feature the current org could ship | product/feature bet — reversible | B | chrysalis |
+| 4 | Model shift — changed business model, pricing, or GTM | line-of-business / model bet | B | emergence |
+| 5 | Metamorphosis — identity-level pivot; a different animal emerges | bet-the-company | B | imago |
+
+## Track B composition rule (levels of realism)
+
+Chaos is not uniformly bet-the-company. Every Track B set must:
+
+- **Span at least two scope tiers** — never three plays all at Level 5.
+- **Include at least one product/feature-level (Level 3) play** — a bold-but-reversible
+  bet the team could ship without a re-org, so the reader has a realistic-chaos option.
+- **Cap bet-the-company (Level 5) plays at one**, and only when the grounding signal is
+  strong enough to justify an identity-level pivot. If the signal isn't there, that play
+  drops to Level 4 or is cut.
+
+Order Track B by ascending scope (Level 3 → 4 → 5) so the realism ladder is legible.
 
 ## The four sliders (score every rec 1–5, one-line justification each)
 

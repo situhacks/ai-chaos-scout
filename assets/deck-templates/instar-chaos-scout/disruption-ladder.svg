@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+  <!-- Warm paper ground -->
+  <rect width="1280" height="720" fill="#F9F7F2"/>
+
+  <!-- Graph-paper grid -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1B1F2A" stroke-opacity="0.06" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="720" fill="url(#grid)"/>
+
+  <!-- Page title -->
+  <text x="60" y="70" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="#2438E0">Disruption Ladder</text>
+  <line x1="60" y1="85" x2="1220" y2="85" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="60" y="115" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#55596A">Metamorphosis stages mapped to disruption levels 1 &#x2013; 5</text>
+
+  <!-- Track labels -->
+  <text x="60" y="170" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0" letter-spacing="2">TRACK A &#x2014; REALISTIC</text>
+  <text x="760" y="170" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#EE5340" letter-spacing="2">TRACK B &#x2014; METAMORPHOSIS</text>
+
+  <!-- === Level 1: Egg (Track A) === -->
+  <rect x="60" y="200" width="220" height="380" rx="0" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="60" y="200" width="220" height="40" fill="#2438E0" fill-opacity="0.08"/>
+  <text x="170" y="227" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="700" fill="#2438E0" text-anchor="middle">Level 1</text>
+
+  <!-- Egg glyph -->
+  <ellipse cx="170" cy="340" rx="40" ry="55" fill="none" stroke="#2438E0" stroke-width="2"/>
+  <!-- Stipple dots inside egg -->
+  <circle cx="155" cy="325" r="1.5" fill="#2438E0" fill-opacity="0.3"/>
+  <circle cx="175" cy="315" r="1.5" fill="#2438E0" fill-opacity="0.3"/>
+  <circle cx="165" cy="350" r="1.5" fill="#2438E0" fill-opacity="0.3"/>
+  <circle cx="180" cy="340" r="1.5" fill="#2438E0" fill-opacity="0.3"/>
+  <circle cx="160" cy="365" r="1.5" fill="#2438E0" fill-opacity="0.3"/>
+
+  <text x="170" y="430" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#2438E0" text-anchor="middle">Egg</text>
+  <text x="170" y="460" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A" text-anchor="middle">Incremental</text>
+  <text x="170" y="485" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">Tune an existing</text>
+  <text x="170" y="505" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">feature or process</text>
+
+  <!-- === Level 2: Larva (Track A) === -->
+  <rect x="300" y="200" width="220" height="380" rx="0" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="300" y="200" width="220" height="40" fill="#2438E0" fill-opacity="0.08"/>
+  <text x="410" y="227" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="700" fill="#2438E0" text-anchor="middle">Level 2</text>
+
+  <!-- Larva glyph -->
+  <path d="M 370,310 Q 385,290 400,310 Q 415,330 430,310 Q 445,290 460,310" fill="none" stroke="#2438E0" stroke-width="2"/>
+  <circle cx="365" cy="310" r="6" fill="none" stroke="#2438E0" stroke-width="1.5"/>
+  <!-- Segments -->
+  <path d="M 370,320 Q 385,340 400,320" fill="none" stroke="#2438E0" stroke-width="1" stroke-opacity="0.4"/>
+  <path d="M 400,320 Q 415,340 430,320" fill="none" stroke="#2438E0" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="410" y="430" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#2438E0" text-anchor="middle">Larva</text>
+  <text x="410" y="460" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A" text-anchor="middle">Adjacent</text>
+  <text x="410" y="485" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">New feature/channel</text>
+  <text x="410" y="505" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">on the current product</text>
+
+  <!-- === Level 3: Chrysalis (Track B) === -->
+  <rect x="540" y="200" width="220" height="380" rx="0" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="540" y="200" width="220" height="40" fill="#EE5340" fill-opacity="0.08"/>
+  <text x="650" y="227" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="700" fill="#EE5340" text-anchor="middle">Level 3</text>
+
+  <!-- Chrysalis glyph -->
+  <ellipse cx="650" cy="330" rx="25" ry="45" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <line x1="650" y1="280" x2="650" y2="270" stroke="#EE5340" stroke-width="1.5"/>
+  <line x1="640" y1="275" x2="650" y2="270" stroke="#EE5340" stroke-width="1"/>
+  <line x1="660" y1="275" x2="650" y2="270" stroke="#EE5340" stroke-width="1"/>
+  <!-- Cross-hatching inside chrysalis -->
+  <line x1="635" y1="310" x2="665" y2="310" stroke="#EE5340" stroke-width="0.5" stroke-opacity="0.3"/>
+  <line x1="632" y1="330" x2="668" y2="330" stroke="#EE5340" stroke-width="0.5" stroke-opacity="0.3"/>
+  <line x1="635" y1="350" x2="665" y2="350" stroke="#EE5340" stroke-width="0.5" stroke-opacity="0.3"/>
+
+  <text x="650" y="430" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#EE5340" text-anchor="middle">Chrysalis</text>
+  <text x="650" y="460" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A" text-anchor="middle">New line</text>
+  <text x="650" y="485" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">A distinct product the</text>
+  <text x="650" y="505" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">current org could ship</text>
+
+  <!-- === Level 4: Emergence (Track B) === -->
+  <rect x="780" y="200" width="220" height="380" rx="0" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="780" y="200" width="220" height="40" fill="#EE5340" fill-opacity="0.08"/>
+  <text x="890" y="227" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="700" fill="#EE5340" text-anchor="middle">Level 4</text>
+
+  <!-- Emergence glyph: wings unfolding from chrysalis -->
+  <path d="M 870,330 L 850,300 L 840,320" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <path d="M 910,330 L 930,300 L 940,320" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <ellipse cx="890" cy="340" rx="15" ry="25" fill="none" stroke="#EE5340" stroke-width="1.5"/>
+  <line x1="890" y1="365" x2="890" y2="380" stroke="#EE5340" stroke-width="1"/>
+
+  <text x="890" y="430" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#EE5340" text-anchor="middle">Emergence</text>
+  <text x="890" y="460" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A" text-anchor="middle">Model shift</text>
+  <text x="890" y="485" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">Changed business model,</text>
+  <text x="890" y="505" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">pricing, or GTM</text>
+
+  <!-- === Level 5: Imago (Track B) === -->
+  <rect x="1020" y="200" width="220" height="380" rx="0" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="1020" y="200" width="220" height="40" fill="#EE5340" fill-opacity="0.08"/>
+  <text x="1130" y="227" font-family="Consolas, 'Courier New', monospace" font-size="18" font-weight="700" fill="#EE5340" text-anchor="middle">Level 5</text>
+
+  <!-- Imago glyph: full butterfly, geometric -->
+  <path d="M 1110,310 L 1090,280 L 1080,310 L 1110,310" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <path d="M 1150,310 L 1170,280 L 1180,310 L 1150,310" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <path d="M 1110,320 L 1095,350 L 1110,340" fill="none" stroke="#EE5340" stroke-width="1.5"/>
+  <path d="M 1150,320 L 1165,350 L 1150,340" fill="none" stroke="#EE5340" stroke-width="1.5"/>
+  <line x1="1130" y1="290" x2="1130" y2="355" stroke="#EE5340" stroke-width="1.5"/>
+  <!-- Antennae -->
+  <line x1="1130" y1="290" x2="1120" y2="275" stroke="#EE5340" stroke-width="1"/>
+  <line x1="1130" y1="290" x2="1140" y2="275" stroke="#EE5340" stroke-width="1"/>
+
+  <text x="1130" y="430" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#EE5340" text-anchor="middle">Imago</text>
+  <text x="1130" y="460" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A" text-anchor="middle">Metamorphosis</text>
+  <text x="1130" y="485" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">Identity-level pivot;</text>
+  <text x="1130" y="505" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#8A8A93" text-anchor="middle">a different animal emerges</text>
+
+  <!-- Bottom rule -->
+  <line x1="60" y1="610" x2="1220" y2="610" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="60" y="640" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">Fig. 1 &#x2014; Disruption levels as metamorphosis stages</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93" text-anchor="end">{page}</text>
+</svg>

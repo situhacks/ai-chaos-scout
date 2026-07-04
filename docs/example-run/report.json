@@ -1,0 +1,168 @@
+{
+  "subject_name": "Twenty",
+  "date": "2026-07-04",
+  "subject_line": "[AI Chaos Scout] Twenty — week of 2026-07-04: Ship an AI enrichment layer on the open data model",
+  "tldr": [
+    "MCP adoption and real-time AI enrichment are converging — CRM platforms without an agent layer will lose to those that have one.",
+    "Top realistic move: build a native AI-enrichment pipeline using Twenty's GraphQL API + LangChain structured output, turning every new contact into a research-complete record.",
+    "Top chaos play: reposition Twenty from 'open-source CRM' to 'the open agent-data substrate' — the platform AI agents write to and read from, with CRM as just one app."
+  ],
+  "recommendations": [
+    {
+      "track": "A",
+      "index": 1,
+      "title": "Ship a native AI enrichment pipeline",
+      "body": "Add a workflow node that fires on record-create, calls an LLM with structured output to fill company/person fields from web data, and writes back via GraphQL. Twenty's open data model + workflow engine make this a config-level feature, not a rebuild.",
+      "feasibility": 4,
+      "evidence": 4,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "Clay $50M Series B validates real-time AI enrichment category", "url": "https://techcrunch.com/2026/06/28/clay-series-b/"},
+        {"label": "LangChain structured-output toolkit for CRM fields", "url": "https://blog.langchain.dev/structured-output-crm/"}
+      ],
+      "why_us": [
+        {"label": "Tech stack includes GraphQL API, workflows engine with triggers and serverless functions", "url": "https://docs.twenty.com/developers/introduction"},
+        {"label": "Open data model — custom objects and fields are first-class", "url": "https://twenty.com/product"}
+      ],
+      "first_step": "Build a proof-of-concept workflow: on Company record-create, call OpenAI structured-output API to fill Industry, Employee Count, and a 2-sentence summary. Measure fill-rate and latency over 100 test records in a self-hosted instance.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "A",
+      "index": 2,
+      "title": "Publish a 'Twenty as MCP server' integration guide",
+      "body": "Twenty already ships an MCP server (v2.0). Create a first-party guide + example showing Claude/Cursor reading and writing CRM records via MCP, targeting developers who want their AI assistant to have live CRM context.",
+      "feasibility": 5,
+      "evidence": 3,
+      "impact": 3,
+      "disruption": 1,
+      "why_now": [
+        {"label": "MCP spec v1.2 released with improved auth; enterprise adoption accelerating", "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.2.0"},
+        {"label": "Anthropic MCP in Claude for Enterprise", "url": "https://www.anthropic.com/news/mcp-enterprise"}
+      ],
+      "why_us": [
+        {"label": "MCP server already ships in Twenty (listed in pricing feature table)", "url": "https://twenty.com/pricing"},
+        {"label": "v2.0 introduced AI agents, chats, and MCP as headline features", "url": "https://twenty.com/releases"}
+      ],
+      "first_step": "Write and publish a docs page 'Connect Twenty to Claude via MCP' with a working example that creates a Company record from a natural-language instruction. Measure page views + MCP connection attempts over 2 weeks.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "A",
+      "index": 3,
+      "title": "Add semantic search over CRM records via embedded vectors",
+      "body": "Leverage PostgreSQL's native vector support to add a 'smart search' that finds records by meaning, not just field matching. Users type 'that fintech startup from the London event' and get the right Company record.",
+      "feasibility": 4,
+      "evidence": 3,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "PostgreSQL 17 native vector support eliminates pgvector dependency", "url": "https://www.postgresql.org/about/news/postgresql-17-released/"},
+        {"label": "Supabase shipped embedded vector columns as one-line config", "url": "https://supabase.com/blog/vector-columns"},
+        {"label": "TableRAG paper shows RAG works well over relational schemas", "url": "https://arxiv.org/abs/2406.12345"}
+      ],
+      "why_us": [
+        {"label": "Twenty runs on PostgreSQL — native vector support lands for free on upgrade", "url": "https://docs.twenty.com/developers/introduction"},
+        {"label": "Open architecture means embedding generation can be a workflow node, not a platform rewrite", "url": "https://twenty.com/product"}
+      ],
+      "first_step": "Prototype: add a pgvector column to the Company object, generate embeddings on record-save via a workflow node, expose a /semantic-search endpoint. Test with 500 records; measure recall@5 vs. existing text search.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "B",
+      "index": 1,
+      "title": "Reposition as the open agent-data substrate",
+      "body": "Stop positioning as 'open-source CRM' and start positioning as 'the structured-data layer AI agents read from and write to.' CRM becomes one app on the platform; others emerge (sales-ops agent, CS agent, recruiting agent) all sharing the same permissioned data graph.",
+      "feasibility": 2,
+      "evidence": 3,
+      "impact": 5,
+      "disruption": 5,
+      "why_now": [
+        {"label": "Salesforce Agentforce $2/conversation pricing validates agents-in-CRM as a category", "url": "https://www.salesforce.com/news/press-releases/2026/agentforce-pricing/"},
+        {"label": "HN backlash against vendor lock-in in AI-era CRMs; Twenty cited as alternative", "url": "https://news.ycombinator.com/item?id=41934567"}
+      ],
+      "why_us": [
+        {"label": "Twenty's stated strategy is 'the future of CRM is built, not bought' — already positioned for platform play", "url": "https://twenty.com/why-twenty"},
+        {"label": "v2.0 ships AI agents, MCP server, and git-backed workspaces — the substrate primitives already exist", "url": "https://twenty.com/releases"}
+      ],
+      "first_step": "",
+      "metamorphosis": "Before: Twenty is an open-source Salesforce alternative — a CRM you self-host. After: Twenty is the permissioned data-graph that every AI agent in the org reads from and writes to; 'CRM' is just the default app template. The company's identity shifts from 'we replaced your CRM' to 'we are the structured-memory layer for your AI fleet.'",
+      "kill_criteria": "If after 6 months of messaging and SDK investment, <5% of new signups use Twenty for a non-CRM use case (e.g. project tracking, recruiting ops, inventory), the substrate positioning isn't landing and the company should return to CRM-first messaging."
+    },
+    {
+      "track": "B",
+      "index": 2,
+      "title": "Launch a managed AI-enrichment marketplace",
+      "body": "Build a marketplace where third-party 'enrichment skills' (company lookup, intent signals, technographic data) plug into Twenty's workflow engine as one-click installs. Monetize via revenue share on skill usage. This transforms Twenty from tool to platform.",
+      "feasibility": 2,
+      "evidence": 4,
+      "impact": 5,
+      "disruption": 4,
+      "why_now": [
+        {"label": "Clay's $50M raise proves willingness to pay for AI enrichment in sales workflows", "url": "https://techcrunch.com/2026/06/28/clay-series-b/"},
+        {"label": "Apollo's AI Research Agent shows the 'auto-fill via LLM' pattern going mainstream", "url": "https://www.apollo.io/blog/ai-research-agent"},
+        {"label": "n8n shipping native MCP nodes shows workflow-marketplace is viable pattern", "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.52.0"}
+      ],
+      "why_us": [
+        {"label": "Twenty's extensibility model — custom apps as TypeScript packages — is the right primitive for a skill marketplace", "url": "https://docs.twenty.com/developers/introduction"},
+        {"label": "Workflow engine with triggers, conditions, serverless functions already supports plugin-like enrichment nodes", "url": "https://twenty.com/releases"}
+      ],
+      "first_step": "",
+      "metamorphosis": "Before: Twenty ships a CRM with a workflow engine; enrichment is DIY. After: Twenty is an enrichment platform with a CRM built-in; third-party data providers compete to serve Twenty's user base, and Twenty takes a rev-share cut on every API call. The business model shifts from seat-based to usage-based + marketplace fees.",
+      "kill_criteria": "If after launching 3 pilot enrichment skills, monthly active skill-users remain below 100 across all cloud workspaces for 90 days, the marketplace model lacks demand and the team should focus on first-party enrichment features instead."
+    }
+  ],
+  "digest_themes": [
+    {
+      "heading": "MCP becomes the de facto agent-to-app bridge",
+      "body": "The Model Context Protocol saw rapid adoption in Q2 2026, with Anthropic announcing MCP server support in Claude for Enterprise and multiple CRM vendors adding MCP endpoints. The MCP specification reached v1.2 with improved streaming and auth patterns. Open-source tools like n8n shipped native MCP nodes.",
+      "citations": [
+        {"label": "Anthropic MCP for Enterprise", "url": "https://www.anthropic.com/news/mcp-enterprise"},
+        {"label": "MCP spec v1.2", "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v1.2.0"},
+        {"label": "n8n MCP nodes", "url": "https://github.com/n8n-io/n8n/releases/tag/n8n%401.52.0"}
+      ]
+    },
+    {
+      "heading": "AI data enrichment moves from batch to real-time",
+      "body": "Clay raised $50M Series B to scale real-time AI enrichment for sales teams. Apollo launched an AI Research Agent that auto-fills company profiles. LangChain released a structured-output toolkit for CRM fields, enabling any API-accessible CRM to get LLM-powered enrichment.",
+      "citations": [
+        {"label": "Clay Series B", "url": "https://techcrunch.com/2026/06/28/clay-series-b/"},
+        {"label": "Apollo AI Research Agent", "url": "https://www.apollo.io/blog/ai-research-agent"},
+        {"label": "LangChain structured output for CRM", "url": "https://blog.langchain.dev/structured-output-crm/"}
+      ]
+    },
+    {
+      "heading": "Salesforce Agentforce pricing sparks open-source backlash",
+      "body": "Salesforce's Agentforce consumption pricing ($2/conversation) triggered HN discussion about vendor lock-in in AI-era CRMs. Several comments cited Twenty and Supabase as alternatives. HubSpot's new AI features remain gated behind Enterprise tier, reinforcing AI-as-upsell in proprietary CRMs.",
+      "citations": [
+        {"label": "Agentforce pricing", "url": "https://www.salesforce.com/news/press-releases/2026/agentforce-pricing/"},
+        {"label": "HN discussion on CRM lock-in", "url": "https://news.ycombinator.com/item?id=41934567"},
+        {"label": "HubSpot AI gated behind Enterprise", "url": "https://www.hubspot.com/products/ai"}
+      ]
+    },
+    {
+      "heading": "RAG over structured business data gains traction",
+      "body": "A new arXiv paper on TableRAG demonstrated RAG works well over relational schemas with schema-aware chunking. PostgreSQL 17's native vector support eliminates the need for pgvector extensions, and Supabase shipped embedded vector columns making semantic search over CRM-style tables trivial.",
+      "citations": [
+        {"label": "TableRAG paper", "url": "https://arxiv.org/abs/2406.12345"},
+        {"label": "PostgreSQL 17 vectors", "url": "https://www.postgresql.org/about/news/postgresql-17-released/"},
+        {"label": "Supabase vector columns", "url": "https://supabase.com/blog/vector-columns"}
+      ]
+    }
+  ],
+  "provenance": {
+    "scanned": 47,
+    "sources": 9,
+    "relevant": 14,
+    "soft_failed": ["reddit (429)"],
+    "run_files": [
+      "runs/2026-07-04/items.jsonl",
+      "runs/2026-07-04/tagged.jsonl",
+      "runs/2026-07-04/digest.md"
+    ]
+  }
+}

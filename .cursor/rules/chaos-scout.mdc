@@ -11,11 +11,25 @@ manual: `AGENTS.md` (canonical). Command specs: `.cursor/commands/chaos-*.md`.
 **Grounding rule (non-negotiable):** every summary sentence and every recommendation
 carries an inline source link. Each recommendation must cite ≥1 scout item (Why now)
 AND ≥1 compiled-truth fact from `knowledge/project-summary.md` (Why us). Recs missing
-either are deleted in the self-check before rendering. Never fabricate a source.
+either are **deleted** in the self-check before rendering — no exceptions, no hedging.
+Never fabricate a source.
+
+**Self-check gate (Stage 3):** before writing `report.json`, for EVERY rec: (1) verify
+Why-now URL exists in `runs/{date}/digest.md`, (2) verify Why-us bullet exists in
+`knowledge/project-summary.md` compiled-truth header. Delete failures. If Track A < 3
+or Track B < 2 after deletions, generate grounded replacements — never ship ungrounded.
 
 **Scripts fetch, you judge.** `scout/*.py` do all deterministic work (fetch, parse,
 dedup, state, render). You do all judgment (summarize, distill the lens, tag relevance,
 recommend, write). Runtime is stdlib-only Python 3.10+ — no pip.
+
+**Stage 1 incremental contract:** if `knowledge/project-summary.md` has content, DIFF
+against it — append new timeline entries + refresh stale header bullets. NEVER rebuild
+from scratch. The timeline is append-only (the system's memory).
+
+**Stage 3 renderer hand-off:** write `runs/{date}/report.json` matching the
+`ReportModel` dataclasses in `scout/render_report.py`, then run:
+`python scout/render_report.py --input runs/{date}/report.json`
 
 **State-file map (repo files are the memory):**
 - `config/subject.yaml` — the target; `config/sources.yaml` — sources + lens-derived queries
@@ -30,4 +44,4 @@ hard-fail a run. Zero new items is a valid run — say so, don't pad.
 
 **Commands:** `/chaos-lens` (Stage 1) → `/chaos-scout` (Stage 2) → `/chaos-report`
 (Stage 3); `/chaos-run` does all three. Composio (Gmail draft) and Gemini images are
-optional layers — everything must work without them.
+optional layers — everything works without them. The `.eml` is the keyless fallback.
