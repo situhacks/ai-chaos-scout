@@ -20,6 +20,13 @@ import sys
 
 # Allow `python scout/run_scout.py` (script mode) as well as `python -m scout.run_scout`.
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# In script mode Python also puts this file's dir (scout/) on sys.path, where
+# scout/http.py would shadow the stdlib `http` package and break `import http.client`
+# (used by urllib.request inside the sources). Drop it so the stdlib wins.
+try:
+    sys.path.remove(os.path.dirname(os.path.abspath(__file__)))
+except ValueError:
+    pass
 
 from scout import dedup
 from scout.config import load_sources
