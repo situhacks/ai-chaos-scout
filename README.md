@@ -1,7 +1,9 @@
 # AI Chaos Scout
 
+![AI Chaos Scout banner](assets/banner.jpg)
+
 **Point it at a company once. Then, per run, one command: it re-reads what the company
-IS, reads the AI industry *as that company*, and hands back an email — realistic moves
+IS, reads the AI industry *as that company*, and hands back an email + deck — realistic moves
 and metamorphosis-level chaos plays, every idea with receipts, ready to forward.**
 
 This is **a repo, not a service.** Open it in an agentic IDE (Devin, Cursor, Claude
@@ -45,10 +47,11 @@ Or run the stages individually:
 - **`/chaos-report`** (Stage 3) — cross digest × company truth → two tracks of grounded
   recommendations → `reports/chaos-report-{date}.md` + `.html` + `.eml`.
 
-**Output:** three files in `reports/`. Double-click the **`.eml`** to open it in
-Outlook/your mail client as a ready-to-send **draft** (nothing auto-sends). The
-**`.html`** is the standalone "Instar" field-guide render; the **`.md`** is a
-paste-anywhere email body.
+**Output:** deliverables in `reports/`:
+- **`.eml`** — double-click to open in Outlook/mail client as a ready-to-send draft (nothing auto-sends)
+- **`.html`** — standalone Riso Field-Study render
+- **`.md`** — paste-anywhere email body
+- **`.pptx`** + **`.pdf`** — full presentation deck (run `python tools/build_deck.py --input runs/{date}/report.json`)
 
 ## What good looks like
 
@@ -57,6 +60,10 @@ paste-anywhere email body.
 (feasibility, evidence, impact, disruption). Drop a new doc into `subject/` and run
 again: the timeline appends, the compiled-truth header refreshes, and recommendations
 re-rank — the repo is the living memory.
+
+### The Chaos Meter
+
+![Disruption levels 1–5 as metamorphosis stages](assets/chaos-meter.jpg)
 
 ## How it works
 
@@ -104,7 +111,7 @@ adapters + templates), `state/` (seen/etags/last-run), `runs/{date}/` (per-run w
 ## Not in scope
 
 Real scheduling (narrated as "weekly", demoed by running twice) · *sending* email (drafts
-only) · live SharePoint beyond the scaffold · PowerPoint/deck generation.
+only) · live SharePoint beyond the scaffold.
 
 ## License
 
