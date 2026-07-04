@@ -41,12 +41,25 @@ STAGE_NAMES = {1: "egg", 2: "larva", 3: "chrysalis", 4: "emergence", 5: "imago"}
 LEVEL_NAMES = {
     1: "Incremental", 2: "Adjacent", 3: "New line", 4: "Model shift", 5: "Metamorphosis",
 }
+# How much of the company each disruption level actually bets — the realism ladder.
+SCOPE_LABELS = {
+    1: "tweak an existing surface",
+    2: "feature-level bet",
+    3: "product/feature bet — reversible",
+    4: "line-of-business / model bet",
+    5: "bet-the-company",
+}
 
-# ── Design tokens (Instar field-guide language) ────────────────────────────────
-PAPER = "#f4efe4"
-INK = "#1f3a5f"
-MADDER = "#8c3b2e"
-GRID_RGBA = "rgba(31,58,95,0.06)"
+
+def _scope_label(level: int) -> str:
+    return SCOPE_LABELS.get(level, "")
+
+# ── Design tokens (Chaos Scout — modern paper / riso) ──────────────────────────
+PAPER = "#F3EFE6"        # warm digital-paper ground (not stark white, not yellow)
+INK = "#1B1F2A"          # near-black body text
+BLUE = "#2438E0"         # riso electric cobalt — Track A, links, structure
+MADDER = "#EE5340"       # riso coral — Track B accent (name kept for compatibility)
+GRID_RGBA = "rgba(27,31,42,0.06)"
 FONT_SANS = "Inter, system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif"
 FONT_MONO = "ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, monospace"
 EMAIL_FONT = "'Segoe UI', 'Helvetica Neue', Arial, sans-serif"
@@ -134,7 +147,7 @@ def _esc(text: str) -> str:
 
 
 def _track_color(rec: Recommendation) -> str:
-    return MADDER if rec.track == "B" else INK
+    return MADDER if rec.track == "B" else BLUE
 
 
 def _citations_md(citations: list[Citation]) -> str:
@@ -343,7 +356,8 @@ def render_markdown(model: ReportModel) -> str:
             level_name = LEVEL_NAMES.get(rec.disruption, "")
             lines.append(f"### {rec.code} {rec.title}")
             lines.append(
-                f"**Level {rec.disruption} \u2014 {level_name}** \u00b7 "
+                f"**Level {rec.disruption} \u2014 {level_name}** "
+                f"({_scope_label(rec.disruption)}) \u00b7 "
                 f"Feasibility {rec.feasibility}/5 \u00b7 Evidence {rec.evidence}/5 \u00b7 "
                 f"Impact {rec.impact}/5 \u00b7 Disruption {rec.disruption}/5"
             )
@@ -586,7 +600,8 @@ def _html_rec_card(
     s += '<div class="rec-card-header">\n'
     s += f'<span>{_svg_stage_glyph(rec.disruption, tc)}</span>\n'
     s += f'<span class="rec-code" style="color:{tc}">{_esc(rec.code)}</span>\n'
-    s += f'<span class="rec-level">Level {rec.disruption} \u2014 {_esc(level_name)}</span>\n'
+    _scope = f' \u00b7 {_esc(_scope_label(rec.disruption))}' if rec.track == "B" else ""
+    s += f'<span class="rec-level">Level {rec.disruption} \u2014 {_esc(level_name)}{_scope}</span>\n'
     s += '</div>\n'
 
     # Title + body
@@ -674,7 +689,7 @@ div[style*="margin: 16px 0"] {{ margin: 0 !important; }}
 table, td {{ mso-table-lspace: 0pt !important; mso-table-rspace: 0pt !important; }}
 table {{ border-spacing: 0 !important; border-collapse: collapse !important; table-layout: fixed !important; margin: 0 auto !important; }}
 img {{ -ms-interpolation-mode: bicubic; }}
-a {{ text-decoration: none; color: {INK}; }}
+a {{ text-decoration: none; color: {BLUE}; }}
 """
 
 
@@ -733,67 +748,86 @@ def _render_email_html(
         f'mso-hide:all;" aria-hidden="true">{_esc(tldr_preview)}</td></tr>\n'
     )
 
-    # Subject/header row
+    # Subject/header row (mono eyebrow + bold modern H1)
     p.append(
-        f'<tr><td style="padding:24px 24px 8px;background-color:{PAPER};">'
-        f'<h1 style="margin:0;font-family:{ef};font-size:20px;font-weight:300;'
-        f'line-height:28px;color:{INK};">{_esc(model.subject_line)}</h1>'
+        f'<tr><td style="padding:30px 28px 6px;background-color:{PAPER};">'
+        f'<p style="margin:0 0 8px;font-family:Consolas,monospace;font-size:10px;'
+        f'font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{BLUE};">'
+        f'AI Chaos Scout &nbsp;//&nbsp; {_esc(model.subject_name)} &nbsp;//&nbsp; {_esc(model.date)}</p>'
+        f'<h1 style="margin:0;font-family:{ef};font-size:26px;font-weight:700;'
+        f'line-height:31px;color:{INK};">{_esc(model.subject_line)}</h1>'
         '</td></tr>\n'
     )
 
-    # TL;DR
+    # TL;DR (real bullets, colored; last one coral to flag the chaos play)
     p.append(
-        f'<tr><td style="padding:8px 24px 16px;background-color:{PAPER};">'
-        f'<p style="margin:0 0 4px;font-family:{ef};font-size:11px;font-weight:600;'
-        f'letter-spacing:1.5px;text-transform:uppercase;color:{INK};">TL;DR</p>'
+        f'<tr><td style="padding:8px 28px 18px;background-color:{PAPER};">'
+        f'<p style="margin:0 0 10px;font-family:Consolas,monospace;font-size:10px;'
+        f'font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{BLUE};">TL;DR</p>'
+        '<table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">\n'
     )
-    for bullet in model.tldr:
+    for i, bullet in enumerate(model.tldr):
+        dot = MADDER if i == len(model.tldr) - 1 else BLUE
         p.append(
-            f'<p style="margin:0 0 4px;font-family:{ef};font-size:14px;'
-            f'line-height:20px;color:{INK};">\u2014 {_esc(bullet)}</p>'
+            '<tr>'
+            f'<td width="20" valign="top" style="padding:0 0 9px;font-family:{ef};'
+            f'font-size:13px;line-height:21px;color:{dot};">\u25AA</td>'
+            f'<td valign="top" style="padding:0 0 9px;font-family:{ef};font-size:14px;'
+            f'line-height:21px;color:{INK};">{_esc(bullet)}</td>'
+            '</tr>\n'
         )
-    p.append('</td></tr>\n')
+    p.append('</table></td></tr>\n')
 
-    # Scoreboard
+    # Scoreboard (fixed column widths so titles never wrap into stacks; legend below)
     p.append(
-        f'<tr><td style="padding:8px 24px;background-color:{PAPER};">'
-        f'<p style="margin:0 0 6px;font-family:{ef};font-size:11px;font-weight:600;'
-        f'letter-spacing:1.5px;text-transform:uppercase;color:{INK};">SCOREBOARD</p>'
+        f'<tr><td style="padding:10px 28px 6px;background-color:{PAPER};">'
+        f'<p style="margin:0 0 8px;font-family:Consolas,monospace;font-size:10px;'
+        f'font-weight:700;letter-spacing:2px;text-transform:uppercase;color:{BLUE};">Scoreboard</p>'
         '<table role="presentation" cellspacing="0" cellpadding="0" border="0"'
-        ' width="100%">\n'
+        ' width="100%" style="table-layout:fixed;">\n'
     )
-    # Header row
+    hdr_style = (
+        f'padding:0 4px 6px;font-family:Consolas,monospace;font-size:10px;'
+        f'font-weight:700;letter-spacing:1px;text-transform:uppercase;'
+        f'color:{BLUE};border-bottom:2px solid {BLUE};'
+    )
     p.append('<tr>')
-    for hdr in ("Code", "Title", "F", "E", "I", "D"):
-        p.append(
-            f'<td style="padding:4px 6px;font-family:{ef};font-size:10px;'
-            f'font-weight:600;letter-spacing:1px;text-transform:uppercase;'
-            f'color:{INK};border-bottom:2px solid rgba(31,58,95,0.2);">{hdr}</td>'
-        )
+    p.append(f'<td width="50" style="{hdr_style}text-align:left;">Code</td>')
+    p.append(f'<td style="{hdr_style}text-align:left;">Title</td>')
+    for hdr in ("F", "E", "I", "D"):
+        p.append(f'<td width="30" style="{hdr_style}text-align:center;">{hdr}</td>')
     p.append('</tr>\n')
-    # Data rows
+    cell = 'padding:7px 4px;border-bottom:1px solid rgba(27,31,42,0.10);'
     for rec in model.recommendations:
         tc = _track_color(rec)
         glyph = EMAIL_STAGE_GLYPHS.get(rec.disruption, "")
         p.append('<tr>')
         p.append(
-            f'<td style="padding:5px 6px;font-family:Consolas,monospace;font-size:12px;'
-            f'color:{tc};border-bottom:1px solid rgba(31,58,95,0.08);">'
-            f'{glyph} {_esc(rec.code)}</td>'
+            f'<td width="50" valign="top" style="{cell}font-family:Consolas,monospace;'
+            f'font-size:12px;font-weight:700;color:{tc};">{glyph}&nbsp;{_esc(rec.code.strip("[]"))}</td>'
         )
         p.append(
-            f'<td style="padding:5px 6px;font-family:{ef};font-size:13px;'
-            f'color:{INK};border-bottom:1px solid rgba(31,58,95,0.08);">'
-            f'{_esc(rec.title)}</td>'
+            f'<td valign="top" style="{cell}font-family:{ef};font-size:13px;'
+            f'line-height:17px;color:{INK};">{_esc(rec.title)}</td>'
         )
         for val in (rec.feasibility, rec.evidence, rec.impact, rec.disruption):
             p.append(
-                f'<td style="padding:5px 6px;font-family:Consolas,monospace;font-size:12px;'
-                f'text-align:center;color:{tc};'
-                f'border-bottom:1px solid rgba(31,58,95,0.08);">{val}</td>'
+                f'<td width="30" valign="top" style="{cell}font-family:Consolas,monospace;'
+                f'font-size:13px;text-align:center;color:{tc};">{val}</td>'
             )
         p.append('</tr>\n')
-    p.append('</table></td></tr>\n')
+    p.append('</table>\n')
+    p.append(
+        f'<p style="margin:9px 0 0;font-family:{ef};font-size:11px;line-height:16px;'
+        f'color:rgba(27,31,42,0.55);">'
+        f'<strong style="color:{INK};">F</strong>&nbsp;Feasibility &nbsp; '
+        f'<strong style="color:{INK};">E</strong>&nbsp;Evidence &nbsp; '
+        f'<strong style="color:{INK};">I</strong>&nbsp;Impact &nbsp; '
+        f'<strong style="color:{INK};">D</strong>&nbsp;Disruption &nbsp;(1–5) &nbsp; '
+        f'<span style="color:{BLUE};">\u25CF</span>&nbsp;Track A &nbsp; '
+        f'<span style="color:{MADDER};">\u25CF</span>&nbsp;Track B</p>'
+        '</td></tr>\n'
+    )
 
     # Rec cards
     track_a_recs, track_b_recs = (
@@ -802,7 +836,7 @@ def _render_email_html(
     )
     fig_num = 0
     for track_label, recs, heading_color in [
-        ("Track A \u2014 Realistic Moves", track_a_recs, INK),
+        ("Track A \u2014 Realistic Moves", track_a_recs, BLUE),
         ("Track B \u2014 Chaos / Metamorphosis", track_b_recs, MADDER),
     ]:
         if not recs:
@@ -824,21 +858,21 @@ def _render_email_html(
             f'<tr><td style="padding:16px 24px 4px;background-color:{PAPER};">'
             f'<p style="margin:0;font-family:{ef};font-size:11px;font-weight:600;'
             f'letter-spacing:1.5px;text-transform:uppercase;'
-            f'color:{INK};">DEEP DIVE \u2014 DIGEST THEMES</p>'
+            f'color:{BLUE};">DEEP DIVE \u2014 DIGEST THEMES</p>'
             '</td></tr>\n'
         )
         for theme in model.digest_themes:
-            body_html = _md_links_to_html(_esc(theme.body), INK)
+            body_html = _md_links_to_html(_esc(theme.body), BLUE)
             p.append(
                 f'<tr><td style="padding:8px 24px;background-color:{PAPER};'
                 f'border-bottom:1px solid rgba(31,58,95,0.08);">'
                 f'<p style="margin:0 0 4px;font-family:{ef};font-size:15px;'
-                f'font-weight:400;color:{INK};">{_esc(theme.heading)}</p>'
+                f'font-weight:600;color:{INK};">{_esc(theme.heading)}</p>'
                 f'<p style="margin:0;font-family:{ef};font-size:13px;'
                 f'line-height:19px;color:{INK};">{body_html}</p>'
             )
             if theme.citations:
-                cite_html = _citations_html(theme.citations, INK)
+                cite_html = _citations_html(theme.citations, BLUE)
                 p.append(
                     f'<p style="margin:4px 0 0;font-family:{ef};font-size:12px;'
                     f'color:rgba(31,58,95,0.6);">Sources: {cite_html}</p>'
@@ -885,6 +919,7 @@ def _email_rec_card(
     border_color = "rgba(140,59,46,0.25)" if rec.track == "B" else "rgba(31,58,95,0.18)"
     level_name = LEVEL_NAMES.get(rec.disruption, "")
     glyph = EMAIL_STAGE_GLYPHS.get(rec.disruption, "")
+    scope_suffix = f" \u00b7 {_esc(_scope_label(rec.disruption))}" if rec.track == "B" else ""
 
     s = (
         f'<tr><td style="padding:8px 24px;background-color:{PAPER};">'
@@ -899,7 +934,7 @@ def _email_rec_card(
         f'<span style="font-size:18px;vertical-align:middle;">{glyph}</span> '
         f'<strong style="font-family:Consolas,monospace;">{_esc(rec.code)}</strong> '
         f'<span style="font-size:12px;opacity:0.7;">'
-        f'Level {rec.disruption} \u2014 {_esc(level_name)}</span>'
+        f'Level {rec.disruption} \u2014 {_esc(level_name)}{scope_suffix}</span>'
         '</td></tr>\n'
     )
 

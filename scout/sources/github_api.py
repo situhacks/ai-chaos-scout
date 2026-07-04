@@ -15,6 +15,7 @@ Contract: return list[scout.models.Item] with meta including tag_name / publishe
 from __future__ import annotations
 
 import json
+import os
 
 from scout.http import get
 from scout.models import Item
@@ -27,6 +28,16 @@ _GITHUB_HEADERS = {
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
 }
+
+
+def _auth_headers() -> dict[str, str]:
+    """Optional bearer auth. Keyless by default; a GITHUB_TOKEN in the env only
+    raises the shared-IP 60 req/hr limit to 5,000 req/hr. Never required, never logged."""
+    token = (os.environ.get("GITHUB_TOKEN") or "").strip()
+    h = dict(_GITHUB_HEADERS)
+    if token:
+        h["Authorization"] = f"Bearer {token}"
+    return h
 
 
 def _release_to_item(rel: dict, repo: str) -> Item | None:
@@ -59,7 +70,7 @@ def _fetch_repo(repo: str, state: State) -> list[Item]:
     resp = get(
         url,
         conditional_headers=state.get_conditional_headers(url),
-        extra_headers=_GITHUB_HEADERS,
+        extra_headers=_auth_headers(),
     )
     if resp.not_modified:
         return []

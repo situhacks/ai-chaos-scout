@@ -14,9 +14,9 @@
 | [A2] | In-Postgres AI enrichment as a workflow action ('Enrich this record') | 4/5 | 4/5 | 4/5 | 2/5 | larva |
 | [A3] | Agent-native views: natural language → saved View (text-to-CRM-query) | 4/5 | 3/5 | 4/5 | 2/5 | larva |
 | [A4] | Publish an 'AI account manager' starter app via create-twenty-app | 4/5 | 4/5 | 3/5 | 2/5 | larva |
-| [B1] | Metamorphosis: from system of record to open 'system of agents' | 3/5 | 4/5 | 5/5 | 4/5 | emergence |
-| [B2] | Chaos: the open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce) | 2/5 | 3/5 | 5/5 | 5/5 | imago |
-| [B3] | Chaos: 'migrate off Salesforce with an agent' — one-click importer + AI re-modeler | 3/5 | 3/5 | 4/5 | 3/5 | chrysalis |
+| [B1] | Salesforce-migration agent — one-click importer + AI schema re-modeler | 3/5 | 3/5 | 4/5 | 3/5 | chrysalis |
+| [B2] | Open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce) | 2/5 | 3/5 | 5/5 | 4/5 | emergence |
+| [B3] | System of record → open 'system of agents' (identity pivot) | 3/5 | 4/5 | 5/5 | 5/5 | imago |
 
 ## Track A — Realistic Moves
 
@@ -58,35 +58,35 @@ Ship an official example app that drafts follow-ups and logs activities for stal
 
 ## Track B — Chaos / Metamorphosis
 
-### [B1] Metamorphosis: from system of record to open 'system of agents'
-**Level 4 — Model shift** · Feasibility 3/5 · Evidence 4/5 · Impact 5/5 · Disruption 4/5
-
-Reframe Twenty so every object can be assigned an agent workforce that does the work (enrich, follow up, summarize, route), with the record as the audit trail rather than the product. The CRM stops being a database you fill in and becomes a team you manage — the boldest expression of 'designed for AI', done in the open.
-
-**Why now:** [QRev: OSS AI-first Salesforce alternative built on agents](https://github.com/qrev-ai/qrev), [Budibase Agents: model-agnostic agents for internal workflows](https://budibase.com/blog/updates/ai-agents-beta/), [Netomi: scaling agentic systems into the enterprise](https://openai.com/index/netomi)
-**Why us:** [Stated strategy: agents as a first-class CRM primitive](https://docs.twenty.com/developers/introduction), [Differentiator: CRM-as-code (objects/views/workflows as code)](https://github.com/twentyhq/twenty)
-**Metamorphosis narrative:** Egg → imago: today agents are a feature bolted beside objects; the metamorphosis makes an assignable agent the default unit of work attached to every object, with records demoted to the log. Twenty ships the reference implementation of an open 'system of agents' while incumbents keep selling systems of record.
-**Kill criteria:** If fewer than ~15% of active workspaces assign at least one agent to an object within two quarters of GA, revert to agents-as-feature and stop the reframe.
-
-### [B2] Chaos: the open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce)
-**Level 5 — Metamorphosis** · Feasibility 2/5 · Evidence 3/5 · Impact 5/5 · Disruption 5/5
-
-Publish a stable MCP contract and position Twenty as the open, self-hostable data-plane that any third party's agents plug into — the opposite of Salesforce Agentforce's walled garden. Competitors monetize a closed agent runtime; Twenty wins by being the neutral, ownable substrate agents build on.
-
-**Why now:** [Airweave: 'let agents search any app' (BYO-agent demand)](https://github.com/airweave-ai/airweave), [PolyMCP: MCP tooling + orchestration momentum](https://news.ycombinator.com/item?id=47061490)
-**Why us:** [Business model: OSS core + free self-host (ownable, neutral)](https://twenty.com/pricing), [Tech stack: GraphQL API to expose as an open MCP contract](https://github.com/twentyhq/twenty)
-**Metamorphosis narrative:** Larva → imago: start from the first-party MCP server (A1), then harden it into a versioned public contract with auth, scopes, and webhooks so external agent platforms treat a self-hosted Twenty as their CRM backend. The moat is openness + self-hostability, which incumbents structurally cannot match.
-**Kill criteria:** If no third-party agent platform integrates against the published MCP contract within two quarters, fold the effort back into first-party-only use (A1) and drop the marketplace framing.
-
-### [B3] Chaos: 'migrate off Salesforce with an agent' — one-click importer + AI re-modeler
-**Level 3 — New line** · Feasibility 3/5 · Evidence 3/5 · Impact 4/5 · Disruption 3/5
+### [B1] Salesforce-migration agent — one-click importer + AI schema re-modeler
+**Level 3 — New line** (product/feature bet — reversible) · Feasibility 3/5 · Evidence 3/5 · Impact 4/5 · Disruption 3/5
 
 Meet the incumbent-disruption moment head-on: an agent that ingests a Salesforce export, proposes a Twenty object/field schema (CRM-as-code), and generates the migration — turning 'I want off Salesforce' into a guided afternoon. This weaponizes CRM-as-code as an acquisition wedge.
 
 **Why now:** [HN: 'Salesforce, SAP, or ServiceNow — which is ripe for disruption?'](https://news.ycombinator.com/item?id=46601662), [Ask HN: 'Easier Alternative to Salesforce?' (recurring demand)](https://news.ycombinator.com/item?id=43260459)
 **Why us:** [Differentiator: define objects/fields/views as code (twenty-sdk)](https://github.com/twentyhq/twenty), [Users: technical teams who build/version their CRM like code](https://twenty.com/why-twenty)
-**Metamorphosis narrative:** Chrysalis: an agent maps a foreign schema to Twenty's code-defined objects, then emits the migration as reviewable code (diff-able, versioned) rather than an opaque import. Migration becomes a developer artifact, not a services engagement.
+**Metamorphosis narrative:** Product/feature bet: an agent maps a Salesforce export onto Twenty's code-defined objects and emits the migration as reviewable, versioned code rather than an opaque import. Scoped to one acquisition surface — reversible, doesn't touch the core product's identity.
 **Kill criteria:** If beta migration completion rate stays below ~40% (users abandon mid-flow), narrow scope to data-only import and drop the schema re-modeling agent.
+
+### [B2] Open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce)
+**Level 4 — Model shift** (line-of-business / model bet) · Feasibility 2/5 · Evidence 3/5 · Impact 5/5 · Disruption 4/5
+
+Publish a stable MCP contract and position Twenty as the open, self-hostable data-plane that any third party's agents plug into — the opposite of Salesforce Agentforce's walled garden. Competitors monetize a closed agent runtime; Twenty wins by being the neutral, ownable substrate agents build on.
+
+**Why now:** [Airweave: 'let agents search any app' (BYO-agent demand)](https://github.com/airweave-ai/airweave), [PolyMCP: MCP tooling + orchestration momentum](https://news.ycombinator.com/item?id=47061490)
+**Why us:** [Business model: OSS core + free self-host (ownable, neutral)](https://twenty.com/pricing), [Tech stack: GraphQL API to expose as an open MCP contract](https://github.com/twentyhq/twenty)
+**Metamorphosis narrative:** Line-of-business / model bet: harden the first-party MCP server (A1) into a versioned public contract so external agent platforms treat a self-hosted Twenty as their CRM backend. This adds an open-substrate line of business and shifts GTM — a model bet, not a company teardown.
+**Kill criteria:** If no third-party agent platform integrates against the published MCP contract within two quarters, fold the effort back into first-party-only use (A1) and drop the marketplace framing.
+
+### [B3] System of record → open 'system of agents' (identity pivot)
+**Level 5 — Metamorphosis** (bet-the-company) · Feasibility 3/5 · Evidence 4/5 · Impact 5/5 · Disruption 5/5
+
+Reframe Twenty so every object can be assigned an agent workforce that does the work (enrich, follow up, summarize, route), with the record as the audit trail rather than the product. The CRM stops being a database you fill in and becomes a team you manage — the boldest expression of 'designed for AI', done in the open.
+
+**Why now:** [QRev: OSS AI-first Salesforce alternative built on agents](https://github.com/qrev-ai/qrev), [Budibase Agents: model-agnostic agents for internal workflows](https://budibase.com/blog/updates/ai-agents-beta/), [Netomi: scaling agentic systems into the enterprise](https://openai.com/index/netomi)
+**Why us:** [Stated strategy: agents as a first-class CRM primitive](https://docs.twenty.com/developers/introduction), [Differentiator: CRM-as-code (objects/views/workflows as code)](https://github.com/twentyhq/twenty)
+**Metamorphosis narrative:** Bet-the-company: make an assignable agent the default unit of work on every object, with the record demoted to the audit log. Twenty stops being a database you fill in and becomes a team you manage — the single identity-level pivot here, only worth it if agent-native signal holds.
+**Kill criteria:** If fewer than ~15% of active workspaces assign at least one agent to an object within two quarters of GA, revert to agents-as-feature and stop the reframe.
 
 ## Deep Dive — Digest Themes
 

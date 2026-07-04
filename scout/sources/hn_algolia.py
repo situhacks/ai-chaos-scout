@@ -50,11 +50,14 @@ def _hit_to_item(hit: dict, query: str) -> Item | None:
     )
 
 
-def _fetch_query(query: str, state: State) -> list[Item]:
+def _fetch_query(query: str, state: State, since_epoch: int | None = None) -> list[Item]:
     url = (
         "https://hn.algolia.com/api/v1/search_by_date"
         f"?query={quote(query)}&tags=story&hitsPerPage={_HITS_PER_PAGE}"
     )
+    if since_epoch is not None:
+        # Source-side recency window: only stories created after the cutoff.
+        url += f"&numericFilters={quote(f'created_at_i>{int(since_epoch)}')}"
     resp = get(url, conditional_headers=state.get_conditional_headers(url))
     if resp.not_modified:
         return []
@@ -76,13 +79,13 @@ def _fetch_query(query: str, state: State) -> list[Item]:
     return out
 
 
-def fetch(queries: list[str], state: State) -> list[Item]:
+def fetch(queries: list[str], state: State, since_epoch: int | None = None) -> list[Item]:
     items: list[Item] = []
     for query in queries or []:
         if not query or not str(query).strip():
             continue
         try:
-            items.extend(_fetch_query(str(query).strip(), state))
+            items.extend(_fetch_query(str(query).strip(), state, since_epoch=since_epoch))
         except Exception:
             continue
     return items

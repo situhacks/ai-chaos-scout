@@ -122,9 +122,10 @@ class TestHTML(unittest.TestCase):
         self.assertIn("<style>", self.html)
 
     def test_design_tokens_present(self):
-        self.assertIn("#f4efe4", self.html, "Paper background color missing")
-        self.assertIn("#1f3a5f", self.html, "Ink color missing")
-        self.assertIn("#8c3b2e", self.html, "Madder color missing")
+        self.assertIn("#F3EFE6", self.html, "Paper background color missing")
+        self.assertIn("#1B1F2A", self.html, "Ink color missing")
+        self.assertIn("#2438E0", self.html, "Riso blue (Track A) color missing")
+        self.assertIn("#EE5340", self.html, "Riso coral (Track B) color missing")
 
     def test_stage_glyphs_present(self):
         for level in range(1, 6):
