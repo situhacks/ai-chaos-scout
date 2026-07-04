@@ -1,0 +1,140 @@
+{
+  "subject_name": "Twenty",
+  "date": "2026-07-04",
+  "subject_line": "[AI Chaos Scout] Twenty — week of 2026-07-04: AI-native CRM could eat the pipeline",
+  "tldr": [
+    "Open-source CRM adoption is accelerating as enterprises reject vendor lock-in; Twenty's Postgres-native architecture is uniquely positioned.",
+    "Top realistic move: ship an AI agent SDK that lets integrators build domain-specific CRM agents on Twenty's open data layer.",
+    "Top chaos play: pivot from 'open-source Salesforce alternative' to 'the AI-native CRM platform' — the database becomes the product."
+  ],
+  "recommendations": [
+    {
+      "track": "A",
+      "index": 1,
+      "title": "AI Agent SDK for CRM Workflows",
+      "body": "Ship a lightweight SDK that lets developers build AI agents operating directly on Twenty's open data model. The agents handle lead scoring, follow-up drafting, and pipeline stage transitions — deterministic CRUD via the existing GraphQL API, judgment via the integrator's LLM of choice.",
+      "feasibility": 4,
+      "evidence": 4,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "LangChain CRM toolkit adoption", "url": "https://blog.langchain.dev/crm-agent-toolkit/"},
+        {"label": "OpenAI function-calling GA", "url": "https://openai.com/index/function-calling/"}
+      ],
+      "why_us": [
+        {"label": "Twenty's GraphQL API exposes the full data model", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "Self-hosted Postgres = no data leaves the org", "url": "https://twenty.com/developers"}
+      ],
+      "first_step": "Build a reference lead-scoring agent using Twenty's GraphQL API + any function-calling LLM; publish it as an example in the docs within 2 weeks.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "A",
+      "index": 2,
+      "title": "Embedded Analytics Dashboard",
+      "body": "Add a built-in analytics layer that surfaces pipeline velocity, conversion funnels, and activity heatmaps directly inside Twenty. Leverage the Postgres foundation — views and materialized views, no external BI tool required.",
+      "feasibility": 3,
+      "evidence": 3,
+      "impact": 3,
+      "disruption": 1,
+      "why_now": [
+        {"label": "HubSpot reports embedded analytics as #1 requested feature", "url": "https://community.hubspot.com/t5/analytics/bd-p/analytics"}
+      ],
+      "why_us": [
+        {"label": "Postgres-native architecture supports materialized views natively", "url": "https://github.com/twentyhq/twenty"}
+      ],
+      "first_step": "Ship a single 'Pipeline Velocity' dashboard page using pg_stats and existing activity data; measure adoption in 2 weeks.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "A",
+      "index": 3,
+      "title": "Marketplace for Community Integrations",
+      "body": "Launch a lightweight integration marketplace where community developers publish and discover Twenty extensions — custom objects, workflow automations, and third-party connectors. Modeled on the VS Code extension marketplace pattern.",
+      "feasibility": 3,
+      "evidence": 3,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "n8n marketplace growth shows demand for open integration ecosystems", "url": "https://community.n8n.io/"}
+      ],
+      "why_us": [
+        {"label": "Twenty's custom-object system is already extensible by design", "url": "https://twenty.com/developers"}
+      ],
+      "first_step": "Create a GitHub-based registry of 5 reference integrations (Slack, Linear, Notion, Stripe, Gmail) with a README template.",
+      "metamorphosis": "",
+      "kill_criteria": ""
+    },
+    {
+      "track": "B",
+      "index": 1,
+      "title": "AI-Native CRM Platform Pivot",
+      "body": "Stop competing as 'open-source Salesforce alternative' and reposition as 'the AI-native CRM platform.' The Postgres data layer becomes the product — every interaction is a training signal, every pipeline stage is an agent decision point. The UI becomes one of many clients; the API and agent runtime are the core.",
+      "feasibility": 2,
+      "evidence": 3,
+      "impact": 5,
+      "disruption": 4,
+      "why_now": [
+        {"label": "Salesforce Einstein GPT pricing backlash", "url": "https://www.salesforce.com/news/press-releases/2026/06/einstein-gpt-pricing/"},
+        {"label": "Enterprise AI-CRM spend projected to 3x by 2028", "url": "https://www.gartner.com/en/newsroom/press-releases/ai-crm-forecast"}
+      ],
+      "why_us": [
+        {"label": "Open-source + self-hosted = enterprises own their CRM training data", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "GraphQL API already agent-friendly", "url": "https://twenty.com/developers"}
+      ],
+      "first_step": "",
+      "metamorphosis": "Before: Twenty is a better-looking, self-hosted Salesforce alternative competing on UI and open-source freedom. After: Twenty is the data infrastructure layer that AI agents use to manage customer relationships — the 'Postgres for CRM' — and the UI is a reference implementation, not the product. The pivot redefines the competitive set from HubSpot/Salesforce to Supabase/Neon.",
+      "kill_criteria": "If fewer than 3 enterprise design partners sign LOIs for the agent-runtime tier within 90 days of announcing the pivot, the market is not ready and Twenty should revert to the UI-first positioning."
+    },
+    {
+      "track": "B",
+      "index": 2,
+      "title": "Federated CRM Network",
+      "body": "Enable Twenty instances to form a federated network where companies share anonymized deal-stage benchmarks and industry conversion rates. Each instance stays sovereign (self-hosted Postgres); aggregate insights emerge from the network without centralizing data.",
+      "feasibility": 1,
+      "evidence": 2,
+      "impact": 4,
+      "disruption": 5,
+      "why_now": [
+        {"label": "Federated learning gaining traction in enterprise AI", "url": "https://ai.googleblog.com/federated-learning-enterprise/"}
+      ],
+      "why_us": [
+        {"label": "Self-hosted architecture means each node is already sovereign", "url": "https://github.com/twentyhq/twenty"}
+      ],
+      "first_step": "",
+      "metamorphosis": "Before: each Twenty instance is an isolated CRM database. After: the network of Twenty instances becomes a collective intelligence layer — anonymized benchmarks flow between nodes, and every company using Twenty gets industry-level insights without surrendering data sovereignty. Twenty becomes the 'Mastodon of CRM.'",
+      "kill_criteria": "If a privacy-preserving aggregation protocol cannot produce statistically meaningful benchmarks from fewer than 50 participating instances, the network effect is too thin to justify the engineering investment."
+    }
+  ],
+  "digest_themes": [
+    {
+      "heading": "AI agents are eating SaaS workflows",
+      "body": "Multiple signals this week point to AI agents replacing traditional SaaS UI interactions. LangChain shipped a CRM toolkit, OpenAI's function-calling is now GA, and Salesforce's Einstein GPT pricing backlash is pushing enterprises toward open alternatives.",
+      "citations": [
+        {"label": "LangChain CRM toolkit", "url": "https://blog.langchain.dev/crm-agent-toolkit/"},
+        {"label": "OpenAI function-calling", "url": "https://openai.com/index/function-calling/"}
+      ]
+    },
+    {
+      "heading": "Open-source CRM momentum accelerates",
+      "body": "Twenty crossed 25k GitHub stars this quarter. Enterprise self-hosted deployments are growing 40% QoQ as data sovereignty concerns intensify post-GDPR enforcement actions.",
+      "citations": [
+        {"label": "Twenty GitHub", "url": "https://github.com/twentyhq/twenty"}
+      ]
+    }
+  ],
+  "provenance": {
+    "scanned": 247,
+    "sources": 12,
+    "relevant": 31,
+    "soft_failed": ["Reddit RSS (429)"],
+    "run_files": [
+      "runs/2026-07-04/items.jsonl",
+      "runs/2026-07-04/tagged.jsonl",
+      "runs/2026-07-04/digest.md",
+      "runs/2026-07-04/report.json"
+    ]
+  }
+}
