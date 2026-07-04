@@ -9,28 +9,28 @@
 
 ## visual_style
 - visual_style: custom
-- visual_style_behavior: Naturalist field-guide aesthetic — warm paper ground with faint graph-paper grid (1f3a5f at 6% opacity, 20px pitch), hairline rules (0.5px specimen-blue strokes) dividing content into specimen-plate cards, hatched/stippled shading instead of soft drop-shadows. Recommendations rendered as catalog plates with figure numbers and catalog codes in monospace. Track A plates in specimen-blue ink; Track B plates in madder-red ink with margin-warning styling. Metamorphosis-stage glyphs (geometric lineart) mark disruption levels. Typography is serif titles (taxonomic authority), sans body (clean field notes), monospace citations. No rounded bubbly cards, no neon gradients, no dark-mode-first, no emoji.
+- visual_style_behavior: Modern riso field-study aesthetic — soft off-white paper ground with a faint drafting grid (ink at 6% opacity, 20px pitch), hairline rules dividing content into clean plate cards, flat riso spot color instead of soft drop-shadows. Recommendations rendered as plates with figure numbers and catalog codes in monospace. Track A plates in riso cobalt (blue); Track B plates in riso coral with a margin accent stripe. Simplified "digified" metamorphosis-stage glyphs (geometric lineart) mark disruption levels. Typography is heavy grotesque-sans headlines (bold, editorial), clean sans body, monospace eyebrows/citations; generous white space, layered/overlapping display type allowed on covers/dividers. No warm/yellow vintage paper, no serif titles, no rounded bubbly cards, no neon gradients, no glitch effect, no dark-mode-first, no emoji.
 
 ## colors
-- bg: #f4efe4
-- secondary_bg: #ebe5d8
-- primary: #1f3a5f
-- accent: #8c3b2e
-- secondary_accent: #5a7a3a
-- text: #2b2b2b
-- text_secondary: #5c5c5c
-- text_tertiary: #8a8578
-- border: #c7c3b8
-- grid: #d3cfc6
-- success: #5a7a3a
-- warning: #8c3b2e
-- track_a: #1f3a5f
-- track_b: #8c3b2e
+- bg: #F9F7F2
+- secondary_bg: #FFFFFF
+- primary: #2438E0
+- accent: #EE5340
+- secondary_accent: #2438E0
+- text: #1B1F2A
+- text_secondary: #55596A
+- text_tertiary: #8A8A93
+- border: #E3E1DC
+- grid: #1B1F2A
+- success: #2438E0
+- warning: #EE5340
+- track_a: #2438E0
+- track_b: #EE5340
 
 ## typography
-- title_family: Georgia, "Times New Roman", serif
+- title_family: "Arial Black", "Helvetica Neue", Arial, sans-serif
 - body_family: Arial, Helvetica, sans-serif
-- emphasis_family: Georgia, "Times New Roman", serif
+- emphasis_family: "Arial Black", "Helvetica Neue", Arial, sans-serif
 - code_family: Consolas, "Courier New", monospace
 - body: 24
 - title: 42

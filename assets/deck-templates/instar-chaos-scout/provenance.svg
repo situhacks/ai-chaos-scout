@@ -1,77 +1,77 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
   <!-- Warm paper ground -->
-  <rect width="1280" height="720" fill="#f4efe4"/>
+  <rect width="1280" height="720" fill="#F9F7F2"/>
 
   <!-- Graph-paper grid -->
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f3a5f" stroke-opacity="0.06" stroke-width="0.5"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1B1F2A" stroke-opacity="0.06" stroke-width="0.5"/>
     </pattern>
   </defs>
   <rect width="1280" height="720" fill="url(#grid)"/>
 
   <!-- Page title -->
-  <text x="60" y="70" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#1f3a5f">Provenance</text>
-  <line x1="60" y1="85" x2="1220" y2="85" stroke="#1f3a5f" stroke-width="0.5"/>
+  <text x="60" y="70" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="42" font-weight="700" fill="#2438E0">Provenance</text>
+  <line x1="60" y1="85" x2="1220" y2="85" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Source inventory card -->
-  <rect x="60" y="110" width="550" height="280" fill="#ebe5d8" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="60" y="110" width="550" height="35" fill="#1f3a5f" fill-opacity="0.08"/>
-  <text x="80" y="135" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f" letter-spacing="2">SOURCE INVENTORY</text>
+  <rect x="60" y="110" width="550" height="280" fill="#FFFFFF" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="60" y="110" width="550" height="35" fill="#2438E0" fill-opacity="0.08"/>
+  <text x="80" y="135" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0" letter-spacing="2">SOURCE INVENTORY</text>
 
   <!-- Stats -->
-  <text x="80" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#1f3a5f">{scanned}</text>
-  <text x="80" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">items scanned</text>
+  <text x="80" y="180" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="700" fill="#2438E0">{scanned}</text>
+  <text x="80" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">items scanned</text>
 
-  <text x="250" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#1f3a5f">{sources}</text>
-  <text x="250" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">sources polled</text>
+  <text x="250" y="180" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="700" fill="#2438E0">{sources}</text>
+  <text x="250" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">sources polled</text>
 
-  <text x="420" y="180" font-family="Georgia, 'Times New Roman', serif" font-size="48" font-weight="700" fill="#5a7a3a">{relevant}</text>
-  <text x="420" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">relevant items</text>
+  <text x="420" y="180" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="48" font-weight="700" fill="#2438E0">{relevant}</text>
+  <text x="420" y="205" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">relevant items</text>
 
   <!-- Soft-failed sources -->
-  <line x1="80" y1="230" x2="590" y2="230" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="80" y="260" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8c3b2e" letter-spacing="1">SOFT-FAILED</text>
-  <text x="80" y="285" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5c5c5c">{soft_failed_1}</text>
-  <text x="80" y="310" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5c5c5c">{soft_failed_2}</text>
-  <text x="80" y="340" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">Skipped and named &#x2014; not fatal per degradation ladder</text>
+  <line x1="80" y1="230" x2="590" y2="230" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="80" y="260" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#EE5340" letter-spacing="1">SOFT-FAILED</text>
+  <text x="80" y="285" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#55596A">{soft_failed_1}</text>
+  <text x="80" y="310" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#55596A">{soft_failed_2}</text>
+  <text x="80" y="340" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">Skipped and named &#x2014; not fatal per degradation ladder</text>
 
   <!-- Grounding note card -->
-  <rect x="640" y="110" width="580" height="280" fill="#ebe5d8" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="640" y="110" width="580" height="35" fill="#1f3a5f" fill-opacity="0.08"/>
-  <text x="660" y="135" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f" letter-spacing="2">GROUNDING NOTE</text>
+  <rect x="640" y="110" width="580" height="280" fill="#FFFFFF" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="640" y="110" width="580" height="35" fill="#2438E0" fill-opacity="0.08"/>
+  <text x="660" y="135" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0" letter-spacing="2">GROUNDING NOTE</text>
 
-  <text x="660" y="180" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#2b2b2b">Every recommendation in this briefing cites:</text>
+  <text x="660" y="180" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1B1F2A">Every recommendation in this briefing cites:</text>
 
-  <text x="660" y="220" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#1f3a5f">Why now</text>
-  <text x="660" y="245" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5c5c5c">&#x2265;1 scout item from this run's digest</text>
-  <text x="660" y="270" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5c5c5c">(a real article, release, or thread URL)</text>
+  <text x="660" y="220" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#2438E0">Why now</text>
+  <text x="660" y="245" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A">&#x2265;1 scout item from this run's digest</text>
+  <text x="660" y="270" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A">(a real article, release, or thread URL)</text>
 
-  <text x="660" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#1f3a5f">Why us</text>
-  <text x="660" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5c5c5c">&#x2265;1 compiled-truth fact from project-summary.md</text>
-  <text x="660" y="360" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#5c5c5c">(which itself traces to a subject source)</text>
+  <text x="660" y="310" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#2438E0">Why us</text>
+  <text x="660" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A">&#x2265;1 compiled-truth fact from project-summary.md</text>
+  <text x="660" y="360" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#55596A">(which itself traces to a subject source)</text>
 
   <!-- Run files -->
-  <rect x="60" y="420" width="1160" height="180" fill="#ebe5d8" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="60" y="420" width="1160" height="35" fill="#1f3a5f" fill-opacity="0.08"/>
-  <text x="80" y="445" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f" letter-spacing="2">RUN FILES</text>
+  <rect x="60" y="420" width="1160" height="180" fill="#FFFFFF" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="60" y="420" width="1160" height="35" fill="#2438E0" fill-opacity="0.08"/>
+  <text x="80" y="445" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0" letter-spacing="2">RUN FILES</text>
 
-  <text x="80" y="485" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#5c5c5c">runs/{date}/items.jsonl</text>
-  <text x="500" y="485" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8a8578">Raw normalized items from all sources</text>
+  <text x="80" y="485" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#55596A">runs/{date}/items.jsonl</text>
+  <text x="500" y="485" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8A8A93">Raw normalized items from all sources</text>
 
-  <text x="80" y="515" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#5c5c5c">runs/{date}/tagged.jsonl</text>
-  <text x="500" y="515" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8a8578">Type + relevance tags (agent judgment)</text>
+  <text x="80" y="515" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#55596A">runs/{date}/tagged.jsonl</text>
+  <text x="500" y="515" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8A8A93">Type + relevance tags (agent judgment)</text>
 
-  <text x="80" y="545" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#5c5c5c">runs/{date}/digest.md</text>
-  <text x="500" y="545" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8a8578">Themed digest, every claim hyperlinked</text>
+  <text x="80" y="545" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#55596A">runs/{date}/digest.md</text>
+  <text x="500" y="545" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8A8A93">Themed digest, every claim hyperlinked</text>
 
-  <text x="80" y="575" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#5c5c5c">runs/{date}/report.json</text>
-  <text x="500" y="575" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8a8578">Structured report (this deck's source data)</text>
+  <text x="80" y="575" font-family="Consolas, 'Courier New', monospace" font-size="16" fill="#55596A">runs/{date}/report.json</text>
+  <text x="500" y="575" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#8A8A93">Structured report (this deck's source data)</text>
 
   <!-- Bottom rule -->
-  <line x1="60" y1="630" x2="1220" y2="630" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="60" y="660" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">Fig. {n} &#x2014; Source provenance and grounding disclosure</text>
+  <line x1="60" y1="630" x2="1220" y2="630" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="60" y="660" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">Fig. {n} &#x2014; Source provenance and grounding disclosure</text>
 
   <!-- Page number -->
-  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="end">{page}</text>
+  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93" text-anchor="end">{page}</text>
 </svg>

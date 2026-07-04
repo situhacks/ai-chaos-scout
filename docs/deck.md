@@ -21,20 +21,23 @@ Both paths consume the **identical** `ReportModel` dataclass from
 `scout/render_report.py`. No data is duplicated or reformulated — the deck slides and
 the email sections carry the same content, citations, and slider values.
 
-## The Instar deck-template package
+## The deck-template package ("Riso Field-Study")
 
-Located at `assets/deck-templates/instar-chaos-scout/`, this is a ppt-master-compatible
-brand template that encodes our "Instar" design language:
+Located at `assets/deck-templates/instar-chaos-scout/` (folder id kept for path
+stability), this is a ppt-master-compatible brand template that encodes our locked
+"Riso Field-Study" design language (`docs/design-language.md`):
 
-- **Warm-paper ground** (`#f4efe4`) — the naturalist's field-notebook page
-- **Specimen-blue ink** (`#1f3a5f`) — text, rules, Track A lineart
-- **Madder-red accent** (`#8c3b2e`) — Track B accents, margin warnings
-- **Faint graph-paper grid** — 20px pitch, ink at 6% opacity
-- **Hairline-ruled specimen-plate cards** — recommendations as catalog plates
-- **Metamorphosis-stage glyphs** — egg→larva→chrysalis→emergence→imago for
-  disruption levels 1–5, rendered as geometric lineart
-- **PPT-safe typography** — Georgia (titles), Arial (body), Consolas (codes);
-  every stack ends in a cross-platform pre-installed font
+- **Soft off-white paper ground** (`#F9F7F2`) — ~50% between warm paper and white
+- **Riso cobalt** (`#2438E0`) — headlines, rules, structure, Track A, links
+- **Riso coral** (`#EE5340`) — Track B accents, margin stripe, metamorphosis highlights
+- **Near-black ink** (`#1B1F2A`) — body text
+- **Faint drafting grid** — 20px pitch, ink at 6% opacity
+- **Hairline-ruled plate cards** — recommendations as clean plates that lift off the paper
+- **Metamorphosis-stage glyphs** — egg→larva→chrysalis→emergence→imago for disruption
+  levels 1–5, simplified geometric lineart shifting blue (L1–2) → coral (L3–5)
+- **Layered/overlapping display type** on covers/dividers; no glitch effect
+- **PPT-safe typography** — Arial Black (heavy headlines), Arial (body), Consolas
+  (eyebrows/codes); every stack ends in a cross-platform pre-installed font
 
 ### Package contents
 

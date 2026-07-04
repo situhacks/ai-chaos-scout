@@ -1,106 +1,106 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
   <!-- Warm paper ground -->
-  <rect width="1280" height="720" fill="#f4efe4"/>
+  <rect width="1280" height="720" fill="#F9F7F2"/>
 
   <!-- Graph-paper grid -->
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f3a5f" stroke-opacity="0.06" stroke-width="0.5"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1B1F2A" stroke-opacity="0.06" stroke-width="0.5"/>
     </pattern>
   </defs>
   <rect width="1280" height="720" fill="url(#grid)"/>
 
   <!-- Track label (madder-red) -->
-  <text x="60" y="50" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8c3b2e" letter-spacing="2">TRACK B &#x2014; METAMORPHOSIS</text>
-  <line x1="60" y1="60" x2="1220" y2="60" stroke="#8c3b2e" stroke-width="0.5"/>
+  <text x="60" y="50" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#EE5340" letter-spacing="2">TRACK B &#x2014; METAMORPHOSIS</text>
+  <line x1="60" y1="60" x2="1220" y2="60" stroke="#EE5340" stroke-width="0.5"/>
 
   <!-- Specimen plate card (madder-red border) -->
-  <rect x="60" y="80" width="1160" height="548" fill="#ebe5d8" stroke="#8c3b2e" stroke-width="0.5"/>
+  <rect x="60" y="80" width="1160" height="548" fill="#FFFFFF" stroke="#EE5340" stroke-width="0.5"/>
 
   <!-- Left margin warning stripe -->
-  <rect x="60" y="80" width="4" height="548" fill="#8c3b2e"/>
+  <rect x="60" y="80" width="4" height="548" fill="#EE5340"/>
 
   <!-- Card header -->
-  <text x="90" y="120" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700" fill="#8c3b2e">[B1]</text>
-  <text x="160" y="120" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#8c3b2e">AI-Native CRM Platform Pivot</text>
+  <text x="90" y="120" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700" fill="#EE5340">[B1]</text>
+  <text x="160" y="120" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" fill="#EE5340">AI-Native CRM Platform Pivot</text>
 
   <!-- Level badge + emergence glyph -->
-  <text x="1020" y="110" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8c3b2e">Level 4 &#x2014; emergence</text>
+  <text x="1020" y="110" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#EE5340">Level 4 &#x2014; emergence</text>
   <!-- Emergence glyph -->
-  <path d="M 1175,95 L 1190,80 L 1205,95 M 1182,88 L 1190,72 L 1198,88" fill="none" stroke="#8c3b2e" stroke-width="1.5"/>
-  <line x1="1190" y1="95" x2="1190" y2="108" stroke="#8c3b2e" stroke-width="1"/>
+  <path d="M 1175,95 L 1190,80 L 1205,95 M 1182,88 L 1190,72 L 1198,88" fill="none" stroke="#EE5340" stroke-width="1.5"/>
+  <line x1="1190" y1="95" x2="1190" y2="108" stroke="#EE5340" stroke-width="1"/>
 
-  <line x1="90" y1="140" x2="1190" y2="140" stroke="#8c3b2e" stroke-width="0.5"/>
+  <line x1="90" y1="140" x2="1190" y2="140" stroke="#EE5340" stroke-width="0.5"/>
 
   <!-- Body -->
-  <text x="90" y="170" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#2b2b2b">Stop competing as 'open-source Salesforce alternative' and reposition as 'the AI-native</text>
-  <text x="90" y="195" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#2b2b2b">CRM platform.' The Postgres data layer becomes the product &#x2014; every interaction is a</text>
-  <text x="90" y="220" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#2b2b2b">training signal, every pipeline stage is an agent decision point.</text>
+  <text x="90" y="170" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#1B1F2A">Stop competing as 'open-source Salesforce alternative' and reposition as 'the AI-native</text>
+  <text x="90" y="195" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#1B1F2A">CRM platform.' The Postgres data layer becomes the product &#x2014; every interaction is a</text>
+  <text x="90" y="220" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#1B1F2A">training signal, every pipeline stage is an agent decision point.</text>
 
   <!-- Slider strip (madder-red) -->
-  <line x1="90" y1="243" x2="1190" y2="243" stroke="#8c3b2e" stroke-width="0.5"/>
+  <line x1="90" y1="243" x2="1190" y2="243" stroke="#EE5340" stroke-width="0.5"/>
 
   <!-- Feasibility 2/5 -->
-  <text x="90" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Feasibility</text>
-  <rect x="210" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="240" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="270" y="255" width="28" height="18" fill="none" stroke="#8c3b2e" stroke-width="0.5"/>
-  <rect x="300" y="255" width="28" height="18" fill="none" stroke="#8c3b2e" stroke-width="0.5"/>
-  <rect x="330" y="255" width="28" height="18" fill="none" stroke="#8c3b2e" stroke-width="0.5"/>
-  <text x="370" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">2/5</text>
+  <text x="90" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Feasibility</text>
+  <rect x="210" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="240" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="270" y="255" width="28" height="18" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="300" y="255" width="28" height="18" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="330" y="255" width="28" height="18" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <text x="370" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">2/5</text>
 
   <!-- Evidence 3/5 -->
-  <text x="430" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Evidence</text>
-  <rect x="530" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="560" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="590" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="620" y="255" width="28" height="18" fill="none" stroke="#8c3b2e" stroke-width="0.5"/>
-  <rect x="650" y="255" width="28" height="18" fill="none" stroke="#8c3b2e" stroke-width="0.5"/>
-  <text x="690" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">3/5</text>
+  <text x="430" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Evidence</text>
+  <rect x="530" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="560" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="590" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="620" y="255" width="28" height="18" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <rect x="650" y="255" width="28" height="18" fill="none" stroke="#EE5340" stroke-width="0.5"/>
+  <text x="690" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">3/5</text>
 
   <!-- Impact 5/5 -->
-  <text x="750" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Impact</text>
-  <rect x="830" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="860" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="890" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="920" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="950" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <text x="990" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">5/5</text>
+  <text x="750" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Impact</text>
+  <rect x="830" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="860" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="890" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="920" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="950" y="255" width="28" height="18" fill="#EE5340"/>
+  <text x="990" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">5/5</text>
 
   <!-- Disruption 4/5 -->
-  <text x="1040" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Disruption</text>
-  <rect x="1140" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="1170" y="255" width="28" height="18" fill="#8c3b2e"/>
-  <rect x="1200" y="255" width="28" height="18" fill="#8c3b2e"/>
+  <text x="1040" y="270" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Disruption</text>
+  <rect x="1140" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="1170" y="255" width="28" height="18" fill="#EE5340"/>
+  <rect x="1200" y="255" width="28" height="18" fill="#EE5340"/>
 
-  <line x1="90" y1="285" x2="1190" y2="285" stroke="#8c3b2e" stroke-width="0.5"/>
+  <line x1="90" y1="285" x2="1190" y2="285" stroke="#EE5340" stroke-width="0.5"/>
 
   <!-- Why now -->
-  <text x="90" y="315" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#8c3b2e">Why now</text>
-  <text x="90" y="340" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2b2b2b">Salesforce Einstein GPT pricing backlash is pushing enterprises toward open alternatives;</text>
-  <text x="90" y="362" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2b2b2b">enterprise AI-CRM spend projected to 3x by 2028.</text>
-  <text x="90" y="385" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c3b2e">[1] salesforce.com/news/einstein-gpt-pricing  [2] gartner.com/ai-crm-forecast</text>
+  <text x="90" y="315" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#EE5340">Why now</text>
+  <text x="90" y="340" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1B1F2A">Salesforce Einstein GPT pricing backlash is pushing enterprises toward open alternatives;</text>
+  <text x="90" y="362" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1B1F2A">enterprise AI-CRM spend projected to 3x by 2028.</text>
+  <text x="90" y="385" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#EE5340">[1] salesforce.com/news/einstein-gpt-pricing  [2] gartner.com/ai-crm-forecast</text>
 
   <!-- Why us -->
-  <text x="90" y="415" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#8c3b2e">Why us</text>
-  <text x="90" y="438" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2b2b2b">Open-source + self-hosted = enterprises own their CRM training data. GraphQL API is</text>
-  <text x="90" y="458" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#2b2b2b">already agent-friendly &#x2014; uniquely positioned for the AI-native CRM play.</text>
-  <text x="90" y="480" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c3b2e">[PS] github.com/twentyhq/twenty  [PS] twenty.com/developers</text>
+  <text x="90" y="415" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#EE5340">Why us</text>
+  <text x="90" y="438" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1B1F2A">Open-source + self-hosted = enterprises own their CRM training data. GraphQL API is</text>
+  <text x="90" y="458" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#1B1F2A">already agent-friendly &#x2014; uniquely positioned for the AI-native CRM play.</text>
+  <text x="90" y="480" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#EE5340">[PS] github.com/twentyhq/twenty  [PS] twenty.com/developers</text>
 
   <!-- Metamorphosis narrative -->
-  <line x1="90" y1="500" x2="1190" y2="500" stroke="#8c3b2e" stroke-width="0.5"/>
-  <text x="90" y="525" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#8c3b2e">Metamorphosis narrative</text>
-  <text x="90" y="548" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#2b2b2b">Before: Twenty is a better-looking, self-hosted Salesforce alternative. After: Twenty is</text>
-  <text x="90" y="568" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#2b2b2b">the data infrastructure layer that AI agents use to manage customer relationships &#x2014;</text>
-  <text x="90" y="588" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#2b2b2b">the 'Postgres for CRM.' Competitive set redefines from HubSpot/Salesforce to Supabase/Neon.</text>
+  <line x1="90" y1="500" x2="1190" y2="500" stroke="#EE5340" stroke-width="0.5"/>
+  <text x="90" y="525" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#EE5340">Metamorphosis narrative</text>
+  <text x="90" y="548" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1B1F2A">Before: Twenty is a better-looking, self-hosted Salesforce alternative. After: Twenty is</text>
+  <text x="90" y="568" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1B1F2A">the data infrastructure layer that AI agents use to manage customer relationships &#x2014;</text>
+  <text x="90" y="588" font-family="Arial, Helvetica, sans-serif" font-size="16" fill="#1B1F2A">the 'Postgres for CRM.' Competitive set redefines from HubSpot/Salesforce to Supabase/Neon.</text>
 
   <!-- Kill criteria callout box -->
-  <rect x="90" y="598" width="1100" height="28" fill="#8c3b2e" fill-opacity="0.06" stroke="#8c3b2e" stroke-width="0.5"/>
-  <text x="105" y="618" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c3b2e">KILL CRITERIA:</text>
-  <text x="255" y="618" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#2b2b2b">&lt;3 enterprise design partners sign LOIs within 90 days &#x2192; market not ready, revert to UI-first</text>
+  <rect x="90" y="598" width="1100" height="28" fill="#EE5340" fill-opacity="0.06" stroke="#EE5340" stroke-width="0.5"/>
+  <text x="105" y="618" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#EE5340">KILL CRITERIA:</text>
+  <text x="255" y="618" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#1B1F2A">&lt;3 enterprise design partners sign LOIs within 90 days &#x2192; market not ready, revert to UI-first</text>
 
   <!-- Bottom rule -->
-  <line x1="60" y1="645" x2="1220" y2="645" stroke="#8c3b2e" stroke-width="0.5"/>
-  <text x="60" y="675" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">Fig. 6 &#x2014; Metamorphosis plate [B1]</text>
-  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="end">8</text>
+  <line x1="60" y1="645" x2="1220" y2="645" stroke="#EE5340" stroke-width="0.5"/>
+  <text x="60" y="675" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">Fig. 6 &#x2014; Metamorphosis plate [B1]</text>
+  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93" text-anchor="end">8</text>
 </svg>

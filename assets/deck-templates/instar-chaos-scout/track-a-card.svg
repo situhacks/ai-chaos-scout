@@ -1,94 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
   <!-- Warm paper ground -->
-  <rect width="1280" height="720" fill="#f4efe4"/>
+  <rect width="1280" height="720" fill="#F9F7F2"/>
 
   <!-- Graph-paper grid -->
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f3a5f" stroke-opacity="0.06" stroke-width="0.5"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1B1F2A" stroke-opacity="0.06" stroke-width="0.5"/>
     </pattern>
   </defs>
   <rect width="1280" height="720" fill="url(#grid)"/>
 
   <!-- Page title -->
-  <text x="60" y="55" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" letter-spacing="2">TRACK A &#x2014; REALISTIC</text>
-  <line x1="60" y1="65" x2="1220" y2="65" stroke="#1f3a5f" stroke-width="0.5"/>
+  <text x="60" y="55" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93" letter-spacing="2">TRACK A &#x2014; REALISTIC</text>
+  <line x1="60" y1="65" x2="1220" y2="65" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Specimen plate card -->
-  <rect x="60" y="85" width="1160" height="530" fill="#ebe5d8" stroke="#1f3a5f" stroke-width="0.5"/>
+  <rect x="60" y="85" width="1160" height="530" fill="#FFFFFF" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Card header: catalog code + title -->
-  <text x="90" y="130" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700" fill="#1f3a5f">{code}</text>
-  <text x="170" y="130" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="700" fill="#1f3a5f">{title}</text>
+  <text x="90" y="130" font-family="Consolas, 'Courier New', monospace" font-size="24" font-weight="700" fill="#2438E0">{code}</text>
+  <text x="170" y="130" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="32" font-weight="700" fill="#2438E0">{title}</text>
 
   <!-- Level badge -->
-  <text x="1190" y="130" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f" text-anchor="end">Level {disruption} &#x2014; {stage}</text>
+  <text x="1190" y="130" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0" text-anchor="end">Level {disruption} &#x2014; {stage}</text>
 
   <!-- Hairline divider -->
-  <line x1="90" y1="150" x2="1190" y2="150" stroke="#1f3a5f" stroke-width="0.5"/>
+  <line x1="90" y1="150" x2="1190" y2="150" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Body text -->
-  <text x="90" y="185" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#2b2b2b">{body_line_1}</text>
-  <text x="90" y="215" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#2b2b2b">{body_line_2}</text>
+  <text x="90" y="185" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#1B1F2A">{body_line_1}</text>
+  <text x="90" y="215" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#1B1F2A">{body_line_2}</text>
 
   <!-- Slider strip (4 sliders) -->
-  <line x1="90" y1="250" x2="1190" y2="250" stroke="#1f3a5f" stroke-width="0.5"/>
+  <line x1="90" y1="250" x2="1190" y2="250" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Feasibility slider -->
-  <text x="90" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Feasibility</text>
+  <text x="90" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Feasibility</text>
   <!-- 5-cell strip -->
-  <rect x="210" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="240" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="270" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="300" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="330" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="375" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">{feasibility}/5</text>
+  <rect x="210" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="240" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="270" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="300" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="330" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="375" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">{feasibility}/5</text>
 
   <!-- Evidence slider -->
-  <text x="460" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Evidence</text>
-  <rect x="560" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="590" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="620" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="650" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="680" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="725" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">{evidence}/5</text>
+  <text x="460" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Evidence</text>
+  <rect x="560" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="590" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="620" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="650" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="680" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="725" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">{evidence}/5</text>
 
   <!-- Impact slider -->
-  <text x="810" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Impact</text>
-  <rect x="890" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="920" y="270" width="30" height="20" fill="#1f3a5f" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="950" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="980" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <rect x="1010" y="270" width="30" height="20" fill="none" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="1055" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">{impact}/5</text>
+  <text x="810" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Impact</text>
+  <rect x="890" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="920" y="270" width="30" height="20" fill="#2438E0" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="950" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="980" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <rect x="1010" y="270" width="30" height="20" fill="none" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="1055" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">{impact}/5</text>
 
   <!-- Disruption slider -->
-  <text x="1100" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#5c5c5c">Disruption</text>
+  <text x="1100" y="285" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#55596A">Disruption</text>
 
-  <line x1="90" y1="300" x2="1190" y2="300" stroke="#1f3a5f" stroke-width="0.5"/>
+  <line x1="90" y1="300" x2="1190" y2="300" stroke="#2438E0" stroke-width="0.5"/>
 
   <!-- Why now -->
-  <text x="90" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#1f3a5f">Why now</text>
-  <text x="90" y="370" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#2b2b2b">{why_now_text}</text>
-  <text x="90" y="395" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f">{why_now_citations}</text>
+  <text x="90" y="340" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#2438E0">Why now</text>
+  <text x="90" y="370" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1B1F2A">{why_now_text}</text>
+  <text x="90" y="395" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0">{why_now_citations}</text>
 
   <!-- Why us -->
-  <text x="90" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#1f3a5f">Why us</text>
-  <text x="90" y="470" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#2b2b2b">{why_us_text}</text>
-  <text x="90" y="495" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#1f3a5f">{why_us_citations}</text>
+  <text x="90" y="440" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#2438E0">Why us</text>
+  <text x="90" y="470" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1B1F2A">{why_us_text}</text>
+  <text x="90" y="495" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#2438E0">{why_us_citations}</text>
 
   <!-- First testable step -->
-  <line x1="90" y1="520" x2="1190" y2="520" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="90" y="555" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="700" fill="#1f3a5f">First testable step</text>
-  <text x="90" y="585" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#2b2b2b">{first_step}</text>
+  <line x1="90" y1="520" x2="1190" y2="520" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="90" y="555" font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="700" fill="#2438E0">First testable step</text>
+  <text x="90" y="585" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#1B1F2A">{first_step}</text>
 
   <!-- Stage glyph (egg or larva) in bottom-right corner -->
-  <ellipse cx="1160" cy="570" rx="14" ry="19" fill="none" stroke="#1f3a5f" stroke-width="1.5"/>
+  <ellipse cx="1160" cy="570" rx="14" ry="19" fill="none" stroke="#2438E0" stroke-width="1.5"/>
 
   <!-- Bottom rule + figure caption -->
-  <line x1="60" y1="630" x2="1220" y2="630" stroke="#1f3a5f" stroke-width="0.5"/>
-  <text x="60" y="660" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578">Fig. {n} &#x2014; Specimen plate {code}</text>
+  <line x1="60" y1="630" x2="1220" y2="630" stroke="#2438E0" stroke-width="0.5"/>
+  <text x="60" y="660" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93">Fig. {n} &#x2014; Specimen plate {code}</text>
 
   <!-- Page number -->
-  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="end">{page}</text>
+  <text x="1220" y="690" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8A8A93" text-anchor="end">{page}</text>
 </svg>

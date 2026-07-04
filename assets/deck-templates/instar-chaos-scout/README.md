@@ -1,15 +1,19 @@
-# Instar Chaos Scout — Deck Template Package
+# Chaos Scout — Deck Template Package ("Riso Field-Study")
 
-A ppt-master-compatible deck-template package that encodes the AI Chaos Scout "Instar"
-design language for PowerPoint deck generation from `report.json`.
+A ppt-master-compatible deck-template package that encodes the AI Chaos Scout locked
+"Riso Field-Study" design language for PowerPoint deck generation from `report.json`.
+(The folder id `instar-chaos-scout` is retained for path stability; the earlier vintage
+"Instar" look was rejected as dated and has been replaced.)
 
 ## What this is
 
 A **brand-kind** template package (identity + signature layout SVGs, no fixed page
 roster) that the external ppt-master skill consumes to produce branded decks. The
-package encodes: warm-paper ground, specimen-blue ink, faint graph-paper grid,
-hairline-ruled specimen-plate cards, Track A/B color separation, monospace citations,
-and metamorphosis-stage glyphs for disruption levels 1–5.
+package encodes: soft off-white paper ground, a two-ink riso system (cobalt blue +
+coral), a faint drafting grid, hairline-ruled plate cards, heavy grotesque-sans
+headlines with layered/overlapping display type, monospace eyebrows/citations, Track
+A/B color separation, and simplified metamorphosis-stage glyphs for disruption levels
+1–5 (blue at levels 1–2 shifting to coral at 3–5).
 
 ## Package contents
 
@@ -56,17 +60,17 @@ assets/deck-templates/instar-chaos-scout/
 ### Colors
 | Token | HEX | Use |
 |---|---|---|
-| bg | `#f4efe4` | Warm paper ground |
-| secondary_bg | `#ebe5d8` | Card backgrounds |
-| primary | `#1f3a5f` | Specimen blue (titles, rules, Track A) |
-| accent | `#8c3b2e` | Madder red (Track B, warnings) |
-| text | `#2b2b2b` | Body text |
-| grid | `#d3cfc6` | Graph-paper grid lines |
+| bg | `#F9F7F2` | Soft off-white paper ground |
+| secondary_bg | `#FFFFFF` | Card backgrounds (plates) |
+| primary | `#2438E0` | Riso cobalt (headlines, rules, structure, Track A) |
+| accent | `#EE5340` | Riso coral (Track B, warnings) |
+| text | `#1B1F2A` | Body text |
+| grid | `#1B1F2A` @ 6% | Drafting-grid lines |
 
 ### Typography (PPT-safe)
 | Role | Stack |
 |---|---|
-| Title | `Georgia, "Times New Roman", serif` |
+| Title | `"Arial Black", "Helvetica Neue", Arial, sans-serif` |
 | Body | `Arial, Helvetica, sans-serif` |
 | Code | `Consolas, "Courier New", monospace` |
 

@@ -1,72 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
-  <!-- Warm paper ground -->
-  <rect width="1280" height="720" fill="#f4efe4"/>
+  <!-- Soft off-white paper ground -->
+  <rect width="1280" height="720" fill="#F9F7F2"/>
 
-  <!-- Graph-paper grid -->
+  <!-- Drafting grid (6% opacity ink) -->
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1f3a5f" stroke-opacity="0.06" stroke-width="0.5"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#1B1F2A" stroke-opacity="0.06" stroke-width="0.5"/>
     </pattern>
   </defs>
   <rect width="1280" height="720" fill="url(#grid)"/>
 
-  <!-- Top hairline rule -->
-  <line x1="60" y1="60" x2="1220" y2="60" stroke="#1f3a5f" stroke-width="0.5"/>
+  <!-- Layered oversized display word (low opacity, overlapping) -->
+  <text x="70" y="470" font-family="&quot;Arial Black&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="200" font-weight="800" fill="#2438E0" fill-opacity="0.06" letter-spacing="-4">CHAOS</text>
+  <text x="470" y="600" font-family="&quot;Arial Black&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="120" font-weight="800" fill="#EE5340" fill-opacity="0.06" letter-spacing="-2">METAMORPHOSIS</text>
 
-  <!-- Specimen-blue decorative bracket -->
-  <line x1="60" y1="60" x2="60" y2="200" stroke="#1f3a5f" stroke-width="1.5"/>
+  <!-- Top hairline rule + monospace eyebrow -->
+  <line x1="60" y1="60" x2="1220" y2="60" stroke="#E3E1DC" stroke-width="1"/>
+  <text x="60" y="95" font-family="Consolas, 'Courier New', monospace" font-size="15" fill="#55596A" letter-spacing="3">AI CHAOS SCOUT // TWENTY // 2026-07-04</text>
 
-  <!-- Title -->
-  <text x="100" y="150" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#1f3a5f">AI Chaos Scout</text>
-  <text x="100" y="210" font-family="Georgia, 'Times New Roman', serif" font-size="32" font-weight="600" fill="#1f3a5f">Weekly Chaos Briefing</text>
+  <!-- Blue accent bar -->
+  <rect x="60" y="140" width="64" height="10" fill="#2438E0"/>
+
+  <!-- Title block -->
+  <text x="58" y="250" font-family="&quot;Arial Black&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="86" font-weight="800" fill="#1B1F2A" letter-spacing="-2">AI Chaos Scout</text>
+  <text x="60" y="300" font-family="&quot;Arial Black&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="30" font-weight="700" fill="#2438E0" letter-spacing="1">Weekly Chaos Briefing</text>
 
   <!-- Subject -->
-  <text x="100" y="300" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" fill="#2b2b2b">Twenty</text>
-  <text x="100" y="340" font-family="Arial, Helvetica, sans-serif" font-size="20" fill="#5c5c5c">Open-source CRM &#x2014; github.com/twentyhq/twenty &#x2014; twenty.com</text>
+  <text x="60" y="390" font-family="&quot;Arial Black&quot;, &quot;Helvetica Neue&quot;, Arial, sans-serif" font-size="44" font-weight="800" fill="#1B1F2A">Twenty &#x2014; open-source CRM</text>
+  <rect x="60" y="410" width="1160" height="2" fill="#EE5340"/>
+  <text x="60" y="452" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#55596A">AI-native CRM could eat the pipeline &#xB7; github.com/twentyhq/twenty</text>
 
-  <!-- Subject line -->
-  <text x="100" y="400" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#5c5c5c">AI-native CRM could eat the pipeline</text>
+  <!-- Metamorphosis strip (blue L1-2 -> coral L3-5) -->
+  <!-- egg L1 -->
+  <ellipse cx="280" cy="580" rx="18" ry="24" fill="none" stroke="#2438E0" stroke-width="2"/>
+  <text x="280" y="627" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="middle">egg</text>
+  <text x="280" y="645" font-family="Consolas, 'Courier New', monospace" font-size="11" fill="#8A8A93" text-anchor="middle">L1</text>
 
-  <!-- Metamorphosis strip -->
-  <!-- egg -->
-  <ellipse cx="280" cy="530" rx="18" ry="24" fill="none" stroke="#1f3a5f" stroke-width="1.5"/>
-  <text x="280" y="580" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="middle">egg</text>
-  <text x="280" y="598" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#8a8578" text-anchor="middle">L1</text>
+  <!-- larva L2 -->
+  <path d="M 430,565 Q 445,555 460,565 Q 475,575 490,565 Q 505,555 520,565" fill="none" stroke="#2438E0" stroke-width="2"/>
+  <text x="475" y="627" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="middle">larva</text>
+  <text x="475" y="645" font-family="Consolas, 'Courier New', monospace" font-size="11" fill="#8A8A93" text-anchor="middle">L2</text>
 
-  <!-- larva -->
-  <path d="M 430,515 Q 445,505 460,515 Q 475,525 490,515 Q 505,505 520,515" fill="none" stroke="#1f3a5f" stroke-width="1.5"/>
-  <text x="475" y="580" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="middle">larva</text>
-  <text x="475" y="598" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#8a8578" text-anchor="middle">L2</text>
+  <!-- chrysalis L3 -->
+  <ellipse cx="680" cy="575" rx="16" ry="24" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <line x1="680" y1="551" x2="680" y2="541" stroke="#EE5340" stroke-width="1.5"/>
+  <text x="680" y="627" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="middle">chrysalis</text>
+  <text x="680" y="645" font-family="Consolas, 'Courier New', monospace" font-size="11" fill="#8A8A93" text-anchor="middle">L3</text>
 
-  <!-- chrysalis -->
-  <ellipse cx="680" cy="525" rx="14" ry="22" fill="none" stroke="#8c3b2e" stroke-width="1.5"/>
-  <line x1="680" y1="500" x2="680" y2="490" stroke="#8c3b2e" stroke-width="1"/>
-  <line x1="673" y1="495" x2="680" y2="490" stroke="#8c3b2e" stroke-width="0.8"/>
-  <line x1="687" y1="495" x2="680" y2="490" stroke="#8c3b2e" stroke-width="0.8"/>
-  <text x="680" y="580" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="middle">chrysalis</text>
-  <text x="680" y="598" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#8a8578" text-anchor="middle">L3</text>
+  <!-- emergence L4 -->
+  <path d="M 858,580 L 838,555 L 828,575" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <path d="M 892,580 L 912,555 L 922,575" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <line x1="875" y1="580" x2="875" y2="595" stroke="#EE5340" stroke-width="1.5"/>
+  <text x="875" y="627" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="middle">emergence</text>
+  <text x="875" y="645" font-family="Consolas, 'Courier New', monospace" font-size="11" fill="#8A8A93" text-anchor="middle">L4</text>
 
-  <!-- emergence -->
-  <path d="M 855,530 L 875,510 L 895,530 M 865,520 L 875,500 L 885,520" fill="none" stroke="#8c3b2e" stroke-width="1.5"/>
-  <line x1="875" y1="530" x2="875" y2="545" stroke="#8c3b2e" stroke-width="1"/>
-  <text x="875" y="580" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="middle">emergence</text>
-  <text x="875" y="598" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#8a8578" text-anchor="middle">L4</text>
-
-  <!-- imago -->
-  <path d="M 1050,525 L 1070,505 L 1090,525 L 1070,515 Z" fill="none" stroke="#8c3b2e" stroke-width="1.5"/>
-  <path d="M 1050,525 L 1070,545 L 1090,525 L 1070,535 Z" fill="none" stroke="#8c3b2e" stroke-width="1.5"/>
-  <text x="1070" y="580" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="middle">imago</text>
-  <text x="1070" y="598" font-family="Consolas, 'Courier New', monospace" font-size="12" fill="#8a8578" text-anchor="middle">L5</text>
+  <!-- imago L5 -->
+  <path d="M 1050,575 L 1030,550 L 1020,575 L 1050,575" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <path d="M 1090,575 L 1110,550 L 1120,575 L 1090,575" fill="none" stroke="#EE5340" stroke-width="2"/>
+  <line x1="1070" y1="555" x2="1070" y2="590" stroke="#EE5340" stroke-width="1.5"/>
+  <text x="1070" y="627" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="middle">imago</text>
+  <text x="1070" y="645" font-family="Consolas, 'Courier New', monospace" font-size="11" fill="#8A8A93" text-anchor="middle">L5</text>
 
   <!-- Connecting lines -->
-  <line x1="310" y1="530" x2="420" y2="530" stroke="#d3cfc6" stroke-width="0.5"/>
-  <line x1="530" y1="530" x2="660" y2="530" stroke="#d3cfc6" stroke-width="0.5"/>
-  <line x1="700" y1="530" x2="840" y2="530" stroke="#d3cfc6" stroke-width="0.5"/>
-  <line x1="910" y1="530" x2="1035" y2="530" stroke="#d3cfc6" stroke-width="0.5"/>
+  <line x1="310" y1="580" x2="420" y2="580" stroke="#E3E1DC" stroke-width="1"/>
+  <line x1="530" y1="580" x2="655" y2="580" stroke="#E3E1DC" stroke-width="1"/>
+  <line x1="705" y1="580" x2="820" y2="580" stroke="#E3E1DC" stroke-width="1"/>
+  <line x1="930" y1="580" x2="1015" y2="580" stroke="#E3E1DC" stroke-width="1"/>
 
-  <!-- Date -->
-  <text x="1220" y="680" font-family="Consolas, 'Courier New', monospace" font-size="14" fill="#8a8578" text-anchor="end">2026-07-04</text>
-
-  <!-- Bottom rule -->
-  <line x1="60" y1="660" x2="1220" y2="660" stroke="#1f3a5f" stroke-width="0.5"/>
+  <!-- Bottom hairline rule + footer -->
+  <line x1="60" y1="675" x2="1220" y2="675" stroke="#E3E1DC" stroke-width="1"/>
+  <text x="1220" y="700" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8A8A93" text-anchor="end">2026-07-04</text>
 </svg>
