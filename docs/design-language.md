@@ -27,7 +27,7 @@ Image 2's glitch effect removed.
 
 | Token | Value | Use |
 |---|---|---|
-| paper | `#F3EFE6` | warm digital-paper page ground |
+| paper | `#F9F7F2` | soft off-white paper ground (~50% between warm paper and white) |
 | ink | `#1B1F2A` | near-black body text |
 | blue | `#2438E0` (riso cobalt) | Track A, links, structure, headlines |
 | coral | `#EE5340` (riso coral) | Track B accents / chaos plays |

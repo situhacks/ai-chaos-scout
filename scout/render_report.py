@@ -55,7 +55,7 @@ def _scope_label(level: int) -> str:
     return SCOPE_LABELS.get(level, "")
 
 # ── Design tokens (Chaos Scout — modern paper / riso) ──────────────────────────
-PAPER = "#F3EFE6"        # warm digital-paper ground (not stark white, not yellow)
+PAPER = "#F9F7F2"        # soft off-white paper ground (~50% between warm paper and white)
 INK = "#1B1F2A"          # near-black body text
 BLUE = "#2438E0"         # riso electric cobalt — Track A, links, structure
 MADDER = "#EE5340"       # riso coral — Track B accent (name kept for compatibility)

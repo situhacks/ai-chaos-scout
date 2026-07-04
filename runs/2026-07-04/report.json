@@ -3,7 +3,7 @@
   "date": "2026-07-04",
   "subject_line": "Twenty × AI: agents as a CRM primitive — 7 grounded moves (2026-07-04)",
   "tldr": [
-    "The defining trend for Twenty this week: AI agents are becoming a built-in CRM primitive across open-source GTM tools (QRev, Auxx, Budibase), and the Model Context Protocol (MCP) is emerging as the integration substrate agents use to read/write apps.",
+    "The defining trend for Twenty this week: AI agents are becoming a built-in CRM primitive across open-source GTM tools (Auxx.ai, Budibase, DenchClaw), and the Model Context Protocol (MCP) is emerging as the integration substrate agents use to read/write apps.",
     "Top realistic move: ship a first-party MCP server that wraps Twenty's existing GraphQL API, so any agent (Claude, Cursor, internal) can query and update the CRM — table-stakes fast.",
     "Top chaos play: become the open, self-hostable CRM data-plane that any third-party agent plugs into via MCP — the anti-Agentforce, positioned exactly where the incumbent-disruption narrative is loudest."
   ],
@@ -54,8 +54,8 @@
           "url": "https://github.com/supreeth-ravi/pgcortex"
         },
         {
-          "label": "Ask HN: AI agents for data/email enrichment vs Apollo/RocketReach",
-          "url": "https://news.ycombinator.com/item?id=41340442"
+          "label": "Show HN: Clay-like enrichment in Google Sheets",
+          "url": "https://www.getvurge.com/"
         }
       ],
       "why_us": [
@@ -116,8 +116,8 @@
           "url": "https://openai.com/index/gradient-labs"
         },
         {
-          "label": "Klarna's AI assistant does the work of 700 agents",
-          "url": "https://openai.com/index/klarna"
+          "label": "Parloa: service agents customers want to talk to",
+          "url": "https://openai.com/index/parloa"
         }
       ],
       "why_us": [
@@ -147,8 +147,8 @@
           "url": "https://news.ycombinator.com/item?id=46601662"
         },
         {
-          "label": "Ask HN: 'Easier Alternative to Salesforce?' (recurring demand)",
-          "url": "https://news.ycombinator.com/item?id=43260459"
+          "label": "Ask HN: how to sell SaaS without AI features in 2026?",
+          "url": "https://news.ycombinator.com/item?id=47023609"
         }
       ],
       "why_us": [
@@ -207,8 +207,8 @@
       "disruption": 5,
       "why_now": [
         {
-          "label": "QRev: OSS AI-first Salesforce alternative built on agents",
-          "url": "https://github.com/qrev-ai/qrev"
+          "label": "Parloa: service agents customers want to talk to",
+          "url": "https://openai.com/index/parloa"
         },
         {
           "label": "Budibase Agents: model-agnostic agents for internal workflows",
@@ -236,11 +236,11 @@
   "digest_themes": [
     {
       "heading": "Open-source CRMs are converging on 'AI-agent-native'",
-      "body": "The OSS CRM/GTM category is racing to make AI agents a built-in primitive, not an add-on — exactly Twenty's stated posture, now contested by newer entrants like QRev, Auxx.ai, and Budibase Agents.",
+      "body": "The OSS CRM/GTM category is racing to make AI agents a built-in primitive, not an add-on — exactly Twenty's stated posture, now contested by newer entrants like Auxx.ai, Budibase Agents, and DenchClaw.",
       "citations": [
         {
-          "label": "QRev — OSS AI-first Salesforce alternative with agents",
-          "url": "https://github.com/qrev-ai/qrev"
+          "label": "DenchClaw — local CRM on an agent runtime",
+          "url": "https://github.com/DenchHQ/DenchClaw"
         },
         {
           "label": "Auxx.ai — support CRM = 'Attio + n8n'",
@@ -265,8 +265,8 @@
           "url": "https://news.ycombinator.com/item?id=47061490"
         },
         {
-          "label": "GodHands — deterministic desktop automation via MCP",
-          "url": "https://news.ycombinator.com/item?id=46996023"
+          "label": "Hugging Face MCP Server",
+          "url": "https://huggingface.co/blog/building-hf-mcp"
         }
       ]
     },
@@ -279,8 +279,8 @@
           "url": "https://github.com/supreeth-ravi/pgcortex"
         },
         {
-          "label": "Ask HN — agentic enrichment vs Apollo/RocketReach",
-          "url": "https://news.ycombinator.com/item?id=41340442"
+          "label": "Clay-like enrichment in Google Sheets (Show HN)",
+          "url": "https://www.getvurge.com/"
         },
         {
           "label": "AgentWeb — business directory API for agents",
@@ -293,8 +293,8 @@
       "body": "The clearest revenue proof points are customer-facing agents (support, account management), validating a 'CRM that does the work, not just stores it' direction.",
       "citations": [
         {
-          "label": "Klarna — AI assistant does the work of 700 agents",
-          "url": "https://openai.com/index/klarna"
+          "label": "Netomi — scaling agentic systems in the enterprise",
+          "url": "https://openai.com/index/netomi"
         },
         {
           "label": "Gradient Labs — an AI account manager per customer",
@@ -319,20 +319,18 @@
           "url": "https://news.ycombinator.com/item?id=47023609"
         },
         {
-          "label": "Ask HN — OSS alternative to almost any SaaS",
-          "url": "https://news.ycombinator.com/item?id=41979332"
+          "label": "ServiceNow powers actionable enterprise AI with OpenAI",
+          "url": "https://openai.com/index/servicenow-powers-actionable-enterprise-ai-with-openai"
         }
       ]
     }
   ],
   "provenance": {
-    "scanned": 2376,
-    "sources": 6,
-    "relevant": 329,
-    "soft_failed": [
-      "github releases (0 items — unauthenticated shared-IP rate limit)",
-      "reddit_rss (0 items — feed blocked/empty this run)"
-    ],
+    "scanned": 2935,
+    "sources": 5,
+    "relevant": 827,
+    "soft_failed": [],
+    "notes": "Token-authed run: GitHub releases now populate (301 release items incl. twenty/v2.18.0 2026-07-02); HN date-windowed to 365d; 0 soft-fails.",
     "run_files": [
       "runs/2026-07-04/items.jsonl",
       "runs/2026-07-04/digest.md",

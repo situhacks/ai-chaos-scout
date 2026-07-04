@@ -122,7 +122,7 @@ class TestHTML(unittest.TestCase):
         self.assertIn("<style>", self.html)
 
     def test_design_tokens_present(self):
-        self.assertIn("#F3EFE6", self.html, "Paper background color missing")
+        self.assertIn("#F9F7F2", self.html, "Paper background color missing")
         self.assertIn("#1B1F2A", self.html, "Ink color missing")
         self.assertIn("#2438E0", self.html, "Riso blue (Track A) color missing")
         self.assertIn("#EE5340", self.html, "Riso coral (Track B) color missing")
