@@ -41,6 +41,17 @@ trend × a real fact about the subject. (Rationale: NewsBreak's ungrounded rewri
 fabricated stories; Particle's verification cut hallucination ~100×. We keep Particle's
 discipline.)
 
+### Self-check procedure (Stage 3, mandatory)
+
+For EVERY recommendation, before writing `report.json`:
+1. Locate the **Why-now** URL(s) in `runs/{date}/digest.md`. The URL must resolve to an
+   item that appears in the digest (original source link, not the digest file itself).
+2. Locate the **Why-us** fact in `knowledge/project-summary.md`'s compiled-truth header.
+   The fact must be a currently-present bullet (not a deleted or timeline-only reference).
+3. If either check fails → **delete the recommendation**. Do not weaken or hedge it.
+4. After deletions: if Track A < 3, generate grounded replacements. If Track B < 2,
+   generate grounded replacements. Never ship ungrounded recs to hit a count.
+
 ## Division of labor — "scripts fetch, you judge"
 
 - **Scripts own everything deterministic:** fetch, parse, normalize, dedup, state,
@@ -75,8 +86,11 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
    3–5 relevance rules. Append its timeline entry.
 5. Push lens-derived values into `config/sources.yaml` (`hn_queries`,
    `github_watchlist`, extra `reddit_rss` subs).
-6. Incremental contract: if a summary exists, DIFF against it — append and refresh,
-   never rebuild. Header older than the newest timeline entry = stale; refresh it.
+6. **Incremental contract:** if `project-summary.md` already has content, DIFF against
+   it — append new timeline entries and refresh stale header bullets, but **never
+   rebuild from scratch**. Header is stale when `updated:` (front-matter) is older
+   than the newest timeline entry — refresh it before finishing. This guarantees the
+   timeline is a true append-only log of what the system learned over time.
 
 ### Stage 2 — `/chaos-scout` (the scoped scout)
 1. Run `python scout/run_scout.py`; read `runs/{today}/items.jsonl`. Note any
@@ -91,20 +105,62 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
 4. Zero new relevant items is a VALID outcome — say so; never pad.
 
 ### Stage 3 — `/chaos-report` (the recommendation engine)
-1. Preconditions: fresh `digest.md` for today; `project-summary.md` header not stale.
-   If violated, run the missing stage first.
+1. **Preconditions:** fresh `runs/{today}/digest.md` exists AND
+   `knowledge/project-summary.md` header is not stale (its `updated:` ≥ its newest
+   timeline entry date). If either fails, run the missing stage first.
 2. Generate **Track A (3–5 realistic)** and **Track B (2–3 chaos/metamorphosis)**
    recommendations per `docs/recommendation-rubric.md`: four sliders (feasibility,
    evidence, impact, disruption 1–5), disruption doubles as the track separator
    (levels 1–2 = A, 3–5 = B). Do NOT average the sliders — the shape is the info.
-3. **Self-check pass BEFORE rendering:** for each rec, verify Why-now resolves to a
-   digest item and Why-us resolves to a compiled-truth bullet. Delete failures; if
-   Track B drops below 2, generate grounded replacements rather than shipping
-   ungrounded ones.
-4. Write the structured report to `runs/{today}/report.json`, then run
-   `python scout/render_report.py --input runs/{today}/report.json` → produces
-   `reports/chaos-report-{date}.md` + `.html` + `.eml`.
-5. Present the user the TL;DR block and the file paths.
+3. **Self-check pass BEFORE rendering** (see "Self-check procedure" above): for each
+   rec, verify Why-now resolves to a digest item and Why-us resolves to a
+   compiled-truth bullet. Delete failures; if Track B drops below 2, generate grounded
+   replacements rather than shipping ungrounded ones.
+4. **Hand-off to the renderer:** write the structured report to
+   `runs/{today}/report.json` matching the `ReportModel` dataclasses in
+   `scout/render_report.py`. The JSON shape is:
+   ```json
+   {
+     "subject_name": "string",
+     "date": "YYYY-MM-DD",
+     "subject_line": "[AI Chaos Scout] {Co} — week of {date}: {sharpest rec title}",
+     "tldr": ["bullet 1", "bullet 2", "bullet 3"],
+     "recommendations": [
+       {
+         "track": "A",
+         "index": 1,
+         "title": "string",
+         "body": "2-3 sentences",
+         "feasibility": 4,
+         "evidence": 3,
+         "impact": 4,
+         "disruption": 2,
+         "why_now": [{"label": "short desc", "url": "https://..."}],
+         "why_us": [{"label": "compiled-truth bullet ref", "url": "source-url-or-path"}],
+         "first_step": "<=2-week experiment description",
+         "metamorphosis": "",
+         "kill_criteria": ""
+       }
+     ],
+     "digest_themes": [
+       {"heading": "Theme title", "body": "2-4 sentences with inline links", "citations": [{"label":"..","url":".."}]}
+     ],
+     "provenance": {
+       "scanned": 42,
+       "sources": 8,
+       "relevant": 12,
+       "soft_failed": ["reddit (429)"],
+       "run_files": ["runs/2026-07-04/items.jsonl", "runs/2026-07-04/tagged.jsonl", "runs/2026-07-04/digest.md"]
+     }
+   }
+   ```
+   Then invoke: `python scout/render_report.py --input runs/{today}/report.json`
+   → produces `reports/chaos-report-{today}.md` + `.html` + `.eml`.
+5. **(Optional) Composio delivery:** if the Composio MCP is connected, create a Gmail
+   **draft** (`GMAIL_CREATE_EMAIL_DRAFT`, `is_html:true`) from the rendered `.html`.
+   **Draft only — NEVER call `GMAIL_SEND_DRAFT`.** Everything works without Composio;
+   the `.eml` file is the zero-dependency fallback (double-click → mail client draft).
+6. Present the user the TL;DR block and the file paths.
 
 ## State-file map (the memory)
 
@@ -120,7 +176,7 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
 | `runs/{date}/items.jsonl` | `run_scout.py` | normalized raw items |
 | `runs/{date}/tagged.jsonl` | you | type + relevance tags |
 | `runs/{date}/digest.md` | you | themed, fully-linked digest |
-| `runs/{date}/report.json` | you | structured report handed to the renderer |
+| `runs/{date}/report.json` | you | structured report matching `ReportModel` — handed to renderer |
 | `reports/chaos-report-{date}.{md,html,eml}` | `render_report.py` | the deliverables |
 
 ## Degradation ladder (expected behavior, not failure)
@@ -131,6 +187,10 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
 3. All scripts blocked → fall back to your built-in web/search tool for the lens queries.
 4. Worst case → tell the user exactly what to paste in manually.
 5. No network at demo time → replay from the morning run's `runs/{date}/items.jsonl`.
+
+**"Zero new items is a valid run"** — if after polling all sources, zero items pass the
+relevance filter, that is an honest outcome. Report it ("0 relevant items from N scanned;
+recommendations unchanged from last run") and do NOT fabricate novelty to fill space.
 
 ## Hard constraints (violating any of these breaks the build)
 
@@ -150,7 +210,8 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
 
 - **Composio delivery** — after Stage 3, if Composio is connected, create a Gmail
   DRAFT (`GMAIL_CREATE_EMAIL_DRAFT`, `is_html:true`) from the Outlook-safe render.
-  **Draft only — never send.** See `docs/composio.md`.
+  **Draft only — never send.** See `docs/composio.md`. The `.eml` is the keyless
+  fallback that always exists regardless of Composio connectivity.
 - **Gemini image stretch** — if `GEMINI_API_KEY` is set, generate one concept visual
   per track's top rec; embed in the HTML (data-URI) and `.eml` (cid). If unset, skip
   silently; layout must not depend on it.

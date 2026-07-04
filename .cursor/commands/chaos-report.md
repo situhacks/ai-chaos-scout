@@ -8,9 +8,10 @@ Cross this run's digest × the compiled truth into grounded, two-track recommend
 
 ## Steps
 
-1. **Preconditions:** a fresh `runs/{today}/digest.md` exists and
-   `knowledge/project-summary.md`'s header is not stale. If either fails, run the
-   missing stage first (`/chaos-scout` or `/chaos-lens`).
+1. **Preconditions:** a fresh `runs/{today}/digest.md` exists AND
+   `knowledge/project-summary.md`'s `updated:` ≥ its newest timeline entry date (header
+   not stale). If either fails, run the missing stage first (`/chaos-scout` or
+   `/chaos-lens`).
 
 2. **Generate recommendations** per `docs/recommendation-rubric.md`:
    - **Track A — Realistic (3–5):** low-lift, testable-this-quarter moves that follow
@@ -24,21 +25,35 @@ Cross this run's digest × the compiled truth into grounded, two-track recommend
      include a **Metamorphosis narrative + kill criteria** (what observable result
      would falsify the idea).
 
-3. **Self-check pass BEFORE rendering** (the grounding gate): for every rec, confirm
-   - **Why now** resolves to ≥1 real item in `digest.md` (link to the original source), and
-   - **Why us** resolves to ≥1 compiled-truth bullet in `project-summary.md`.
-   Delete any rec that fails either. If Track B falls below 2, generate grounded
-   replacements — never ship an ungrounded chaos rec to hit a count.
+3. **Self-check pass BEFORE rendering** (the grounding gate): for every rec, confirm:
+   - **Why now** resolves to ≥1 real item in `runs/{today}/digest.md` (link to the
+     original source URL, not the digest file path), and
+   - **Why us** resolves to ≥1 compiled-truth bullet in `knowledge/project-summary.md`
+     (the bullet must currently exist in the header, not only in a timeline entry).
+   Delete any rec that fails either. If Track A falls below 3 or Track B falls below 2,
+   generate grounded replacements — never ship an ungrounded rec to hit a count.
 
 4. **Render:** write the structured report to `runs/{today}/report.json` matching the
-   `ReportModel` dataclasses in `scout/render_report.py` (subject_name, date,
-   subject_line, tldr, recommendations[], digest_themes[], provenance). Then run:
-   `python scout/render_report.py --input runs/{today}/report.json`
+   `ReportModel` dataclasses in `scout/render_report.py`:
+   ```
+   {subject_name, date, subject_line, tldr[3], recommendations[], digest_themes[], provenance}
+   ```
+   Each recommendation includes: `track`, `index`, `title`, `body`, `feasibility`,
+   `evidence`, `impact`, `disruption`, `why_now[]` (Citation objects: `{label, url}`),
+   `why_us[]` (Citation objects), `first_step` (Track A) or `metamorphosis` +
+   `kill_criteria` (Track B). See `AGENTS.md` § Stage 3 for the full JSON shape.
+
+   Then run: `python scout/render_report.py --input runs/{today}/report.json`
    → produces `reports/chaos-report-{today}.md` + `.html` + `.eml`.
 
 5. **(Optional) Composio delivery:** if Composio MCP is connected, create a Gmail
-   **draft** from the Outlook-safe email HTML (`GMAIL_CREATE_EMAIL_DRAFT`,
-   `is_html:true`). Draft only — never send. See `docs/composio.md`.
+   **draft** from the Outlook-safe email HTML:
+   - Action: `GMAIL_CREATE_EMAIL_DRAFT`
+   - Params: `is_html: true`, `subject`: the `subject_line` from report.json,
+     `body`: contents of `reports/chaos-report-{today}.html`
+   - **Draft only — NEVER call `GMAIL_SEND_DRAFT`.** The human reviews and sends.
+   - If Composio is not connected, skip silently. The `.eml` is the keyless fallback
+     (double-click → opens as a draft in any mail client).
 
 6. **Present the operator** the TL;DR block and the three report file paths.
 
