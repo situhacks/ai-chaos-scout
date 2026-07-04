@@ -1,0 +1,207 @@
+{
+  "subject_name": "Twenty",
+  "date": "2026-07-04",
+  "subject_line": "Twenty × AI: agents as a CRM primitive — 7 grounded moves (2026-07-04)",
+  "tldr": [
+    "The defining trend for Twenty this week: AI agents are becoming a built-in CRM primitive across open-source GTM tools (QRev, Auxx, Budibase), and the Model Context Protocol (MCP) is emerging as the integration substrate agents use to read/write apps.",
+    "Top realistic move: ship a first-party MCP server that wraps Twenty's existing GraphQL API, so any agent (Claude, Cursor, internal) can query and update the CRM — table-stakes fast.",
+    "Top chaos play: become the open, self-hostable CRM data-plane that any third-party agent plugs into via MCP — the anti-Agentforce, positioned exactly where the incumbent-disruption narrative is loudest."
+  ],
+  "recommendations": [
+    {
+      "track": "A",
+      "index": 1,
+      "title": "Ship a first-party MCP server that exposes Twenty to any agent",
+      "body": "Wrap Twenty's existing GraphQL API as a Model Context Protocol server so any MCP-capable agent can search records, read objects, and (gated) write updates. This turns the 'designed for AI' claim into a concrete, standards-based surface and rides the fastest-moving integration trend without new infra.",
+      "feasibility": 5,
+      "evidence": 4,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "Airweave (YC X25): 'let agents search any app'", "url": "https://github.com/airweave-ai/airweave"},
+        {"label": "PolyMCP: MCP tools + autonomous agents + orchestration", "url": "https://news.ycombinator.com/item?id=47061490"}
+      ],
+      "why_us": [
+        {"label": "Tech stack: GraphQL API on NestJS/TypeScript (README Stack)", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "Stated strategy: 'designed for AI', agents as a primitive", "url": "https://docs.twenty.com/developers/introduction"}
+      ],
+      "first_step": "In 2 weeks: build a read-only MCP server wrapping the GraphQL API (tools: search_records, get_object, list_views), dogfood it in Cursor/Claude, and open a PR to modelcontextprotocol/servers with Twenty listed."
+    },
+    {
+      "track": "A",
+      "index": 2,
+      "title": "In-Postgres AI enrichment as a workflow action ('Enrich this record')",
+      "body": "Add an 'Enrich' workflow action that uses an LLM to fill missing company/contact fields from public data and writes back to the Postgres row. Enrichment is a core CRM job being re-platformed onto agents + the database — and Twenty already runs on Postgres, so this is differentiated and native rather than a third-party bolt-on.",
+      "feasibility": 4,
+      "evidence": 4,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "PgCortex: AI enrichment per Postgres row, zero txn blocking", "url": "https://github.com/supreeth-ravi/pgcortex"},
+        {"label": "Ask HN: AI agents for data/email enrichment vs Apollo/RocketReach", "url": "https://news.ycombinator.com/item?id=41340442"}
+      ],
+      "why_us": [
+        {"label": "Tech stack: PostgreSQL backend (README Stack)", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "Offering: workflows are a core building block", "url": "https://twenty.com/product"}
+      ],
+      "first_step": "Ship a flagged 'Enrich' action on the Company object: on trigger, an LLM proposes values for empty fields with source links; a human approves before write-back. Measure fill-rate and correction rate on 50 records."
+    },
+    {
+      "track": "A",
+      "index": 3,
+      "title": "Agent-native views: natural language → saved View (text-to-CRM-query)",
+      "body": "Add an 'Ask' command that turns a plain-English question ('deals closing this month with no activity in 14 days') into a saved View via GraphQL filters — not free-form SQL. Views are already a core primitive; this makes them conversational and matches how practitioners are starting to drive their CRM by prompt.",
+      "feasibility": 4,
+      "evidence": 3,
+      "impact": 4,
+      "disruption": 2,
+      "why_now": [
+        {"label": "Ask HN: an AI agent running CRM follow-ups in prod (200 msg)", "url": "https://news.ycombinator.com/item?id=45090740"},
+        {"label": "Airweave: agents searching across app data", "url": "https://github.com/airweave-ai/airweave"}
+      ],
+      "why_us": [
+        {"label": "Offering: views are a core building block extended as code", "url": "https://twenty.com/product"},
+        {"label": "Tech stack: GraphQL filter layer already exists", "url": "https://github.com/twentyhq/twenty"}
+      ],
+      "first_step": "Ship a read-only 'Ask' palette that maps a question to GraphQL view filters and previews the result set before saving. Constrain to existing fields/operators (no raw SQL) to keep it safe."
+    },
+    {
+      "track": "A",
+      "index": 4,
+      "title": "Publish an 'AI account manager' starter app via create-twenty-app",
+      "body": "Ship an official example app that drafts follow-ups and logs activities for stale deals, scaffolded with create-twenty-app. It showcases the apps SDK and agents primitive with a use case the market has already validated commercially, and gives developers a copyable pattern.",
+      "feasibility": 4,
+      "evidence": 4,
+      "impact": 3,
+      "disruption": 2,
+      "why_now": [
+        {"label": "Gradient Labs: an AI account manager per bank customer", "url": "https://openai.com/index/gradient-labs"},
+        {"label": "Klarna's AI assistant does the work of 700 agents", "url": "https://openai.com/index/klarna"}
+      ],
+      "why_us": [
+        {"label": "Differentiator: apps SDK + create-twenty-app (CRM-as-code)", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "Stated strategy: agents as a first-class primitive", "url": "https://docs.twenty.com/developers/introduction"}
+      ],
+      "first_step": "Scaffold a `create-twenty-app` template 'deal-nudger': finds deals with no activity in N days, drafts a follow-up email, and logs a task. Ship it as a documented example app in the developer docs."
+    },
+    {
+      "track": "B",
+      "index": 1,
+      "title": "Metamorphosis: from system of record to open 'system of agents'",
+      "body": "Reframe Twenty so every object can be assigned an agent workforce that does the work (enrich, follow up, summarize, route), with the record as the audit trail rather than the product. The CRM stops being a database you fill in and becomes a team you manage — the boldest expression of 'designed for AI', done in the open.",
+      "feasibility": 3,
+      "evidence": 4,
+      "impact": 5,
+      "disruption": 4,
+      "why_now": [
+        {"label": "QRev: OSS AI-first Salesforce alternative built on agents", "url": "https://github.com/qrev-ai/qrev"},
+        {"label": "Budibase Agents: model-agnostic agents for internal workflows", "url": "https://budibase.com/blog/updates/ai-agents-beta/"},
+        {"label": "Netomi: scaling agentic systems into the enterprise", "url": "https://openai.com/index/netomi"}
+      ],
+      "why_us": [
+        {"label": "Stated strategy: agents as a first-class CRM primitive", "url": "https://docs.twenty.com/developers/introduction"},
+        {"label": "Differentiator: CRM-as-code (objects/views/workflows as code)", "url": "https://github.com/twentyhq/twenty"}
+      ],
+      "metamorphosis": "Egg → imago: today agents are a feature bolted beside objects; the metamorphosis makes an assignable agent the default unit of work attached to every object, with records demoted to the log. Twenty ships the reference implementation of an open 'system of agents' while incumbents keep selling systems of record.",
+      "kill_criteria": "If fewer than ~15% of active workspaces assign at least one agent to an object within two quarters of GA, revert to agents-as-feature and stop the reframe."
+    },
+    {
+      "track": "B",
+      "index": 2,
+      "title": "Chaos: the open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce)",
+      "body": "Publish a stable MCP contract and position Twenty as the open, self-hostable data-plane that any third party's agents plug into — the opposite of Salesforce Agentforce's walled garden. Competitors monetize a closed agent runtime; Twenty wins by being the neutral, ownable substrate agents build on.",
+      "feasibility": 2,
+      "evidence": 3,
+      "impact": 5,
+      "disruption": 5,
+      "why_now": [
+        {"label": "Airweave: 'let agents search any app' (BYO-agent demand)", "url": "https://github.com/airweave-ai/airweave"},
+        {"label": "PolyMCP: MCP tooling + orchestration momentum", "url": "https://news.ycombinator.com/item?id=47061490"}
+      ],
+      "why_us": [
+        {"label": "Business model: OSS core + free self-host (ownable, neutral)", "url": "https://twenty.com/pricing"},
+        {"label": "Tech stack: GraphQL API to expose as an open MCP contract", "url": "https://github.com/twentyhq/twenty"}
+      ],
+      "metamorphosis": "Larva → imago: start from the first-party MCP server (A1), then harden it into a versioned public contract with auth, scopes, and webhooks so external agent platforms treat a self-hosted Twenty as their CRM backend. The moat is openness + self-hostability, which incumbents structurally cannot match.",
+      "kill_criteria": "If no third-party agent platform integrates against the published MCP contract within two quarters, fold the effort back into first-party-only use (A1) and drop the marketplace framing."
+    },
+    {
+      "track": "B",
+      "index": 3,
+      "title": "Chaos: 'migrate off Salesforce with an agent' — one-click importer + AI re-modeler",
+      "body": "Meet the incumbent-disruption moment head-on: an agent that ingests a Salesforce export, proposes a Twenty object/field schema (CRM-as-code), and generates the migration — turning 'I want off Salesforce' into a guided afternoon. This weaponizes CRM-as-code as an acquisition wedge.",
+      "feasibility": 3,
+      "evidence": 3,
+      "impact": 4,
+      "disruption": 3,
+      "why_now": [
+        {"label": "HN: 'Salesforce, SAP, or ServiceNow — which is ripe for disruption?'", "url": "https://news.ycombinator.com/item?id=46601662"},
+        {"label": "Ask HN: 'Easier Alternative to Salesforce?' (recurring demand)", "url": "https://news.ycombinator.com/item?id=43260459"}
+      ],
+      "why_us": [
+        {"label": "Differentiator: define objects/fields/views as code (twenty-sdk)", "url": "https://github.com/twentyhq/twenty"},
+        {"label": "Users: technical teams who build/version their CRM like code", "url": "https://twenty.com/why-twenty"}
+      ],
+      "metamorphosis": "Chrysalis: an agent maps a foreign schema to Twenty's code-defined objects, then emits the migration as reviewable code (diff-able, versioned) rather than an opaque import. Migration becomes a developer artifact, not a services engagement.",
+      "kill_criteria": "If beta migration completion rate stays below ~40% (users abandon mid-flow), narrow scope to data-only import and drop the schema re-modeling agent."
+    }
+  ],
+  "digest_themes": [
+    {
+      "heading": "Open-source CRMs are converging on 'AI-agent-native'",
+      "body": "The OSS CRM/GTM category is racing to make AI agents a built-in primitive, not an add-on — exactly Twenty's stated posture, now contested by newer entrants like QRev, Auxx.ai, and Budibase Agents.",
+      "citations": [
+        {"label": "QRev — OSS AI-first Salesforce alternative with agents", "url": "https://github.com/qrev-ai/qrev"},
+        {"label": "Auxx.ai — support CRM = 'Attio + n8n'", "url": "https://auxx.ai"},
+        {"label": "Budibase Agents (Beta)", "url": "https://budibase.com/blog/updates/ai-agents-beta/"}
+      ]
+    },
+    {
+      "heading": "MCP is becoming the integration substrate for agents",
+      "body": "The Model Context Protocol is emerging as the standard way agents read/write external apps. For a CRM, being an MCP server (expose data) and host (reach tools) is fast becoming table stakes.",
+      "citations": [
+        {"label": "Airweave — let agents search any app", "url": "https://github.com/airweave-ai/airweave"},
+        {"label": "PolyMCP — MCP tools + orchestration", "url": "https://news.ycombinator.com/item?id=47061490"},
+        {"label": "GodHands — deterministic desktop automation via MCP", "url": "https://news.ycombinator.com/item?id=46996023"}
+      ]
+    },
+    {
+      "heading": "Data enrichment is being re-platformed onto agents + Postgres",
+      "body": "Contact/company enrichment — a core CRM job — is shifting from third-party APIs (Clearbit/Apollo) toward agentic + in-database approaches. Twenty runs on PostgreSQL, so in-row enrichment is a natural, differentiated surface.",
+      "citations": [
+        {"label": "PgCortex — AI enrichment per Postgres row", "url": "https://github.com/supreeth-ravi/pgcortex"},
+        {"label": "Ask HN — agentic enrichment vs Apollo/RocketReach", "url": "https://news.ycombinator.com/item?id=41340442"},
+        {"label": "AgentWeb — business directory API for agents", "url": "https://agentweb.live"}
+      ]
+    },
+    {
+      "heading": "Enterprises are operationalizing agentic customer-facing work",
+      "body": "The clearest revenue proof points are customer-facing agents (support, account management), validating a 'CRM that does the work, not just stores it' direction.",
+      "citations": [
+        {"label": "Klarna — AI assistant does the work of 700 agents", "url": "https://openai.com/index/klarna"},
+        {"label": "Gradient Labs — an AI account manager per customer", "url": "https://openai.com/index/gradient-labs"},
+        {"label": "Parloa — service agents customers want to talk to", "url": "https://openai.com/index/parloa"}
+      ]
+    },
+    {
+      "heading": "The incumbent-disruption narrative is loud — open/AI-native is the wedge",
+      "body": "Market discourse explicitly asks which system-of-record incumbents fall first and whether non-AI SaaS is sellable — a tailwind for an open, AI-native CRM.",
+      "citations": [
+        {"label": "HN — Salesforce/SAP/ServiceNow: ripe for disruption?", "url": "https://news.ycombinator.com/item?id=46601662"},
+        {"label": "Ask HN — how to sell SaaS without AI features in 2026?", "url": "https://news.ycombinator.com/item?id=47023609"},
+        {"label": "Ask HN — OSS alternative to almost any SaaS", "url": "https://news.ycombinator.com/item?id=41979332"}
+      ]
+    }
+  ],
+  "provenance": {
+    "scanned": 2376,
+    "sources": 6,
+    "relevant": 329,
+    "soft_failed": ["github releases (0 items — unauthenticated shared-IP rate limit)", "reddit_rss (0 items — feed blocked/empty this run)"],
+    "run_files": [
+      "runs/2026-07-04/items.jsonl",
+      "runs/2026-07-04/digest.md",
+      "runs/2026-07-04/report.json"
+    ]
+  }
+}

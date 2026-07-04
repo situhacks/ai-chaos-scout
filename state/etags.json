@@ -1,1 +1,17 @@
-{}
+{
+  "https://api.ossinsight.io/v1/trends/repos/?period=past_week&language=Python": {
+    "etag": "\"8fudod\""
+  },
+  "https://api.ossinsight.io/v1/trends/repos/?period=past_week&language=TypeScript": {
+    "etag": "\"xp2cl4\""
+  },
+  "https://github.com/trending/python": {
+    "etag": "W/\"32002405a4fbdf183e5f09a928cfc37d\""
+  },
+  "https://huggingface.co/blog/feed.xml": {
+    "etag": "W/\"3a749-HUiYgPB/Nvnp1oAF7auF1db/H7M\""
+  },
+  "https://rss.arxiv.org/rss/cs.AI": {
+    "etag": "5951faa50aae9e47d4298c326ec6b9e970aef51e63c62adfc1dc7b778df2b6c9"
+  }
+}

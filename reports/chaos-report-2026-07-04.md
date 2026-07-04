@@ -1,94 +1,127 @@
-# [AI Chaos Scout] Meridian Analytics — week of 2026-07-04: LLM-native analytics is the new table stakes
+# Twenty × AI: agents as a CRM primitive — 7 grounded moves (2026-07-04)
 
 ## TL;DR
 
-- The defining trend: enterprise analytics vendors are racing to embed LLM summarization; three major platforms shipped natural-language query this quarter.
-- Top realistic move: integrate LLM-powered data summarization into existing dashboards (feasibility 5/5, evidence 4/5).
-- Top chaos play: open-source the core engine to capture the developer analytics market before Metabase and Grafana converge on it (disruption 4/5).
+- The defining trend for Twenty this week: AI agents are becoming a built-in CRM primitive across open-source GTM tools (QRev, Auxx, Budibase), and the Model Context Protocol (MCP) is emerging as the integration substrate agents use to read/write apps.
+- Top realistic move: ship a first-party MCP server that wraps Twenty's existing GraphQL API, so any agent (Claude, Cursor, internal) can query and update the CRM — table-stakes fast.
+- Top chaos play: become the open, self-hostable CRM data-plane that any third-party agent plugs into via MCP — the anti-Agentforce, positioned exactly where the incumbent-disruption narrative is loudest.
 
 ## Scoreboard
 
 | Code | Title | Feasibility | Evidence | Impact | Disruption | Stage |
 |------|-------|-------------|----------|--------|------------|-------|
-| [A1] | Integrate LLM-powered data summarization | 5/5 | 4/5 | 4/5 | 1/5 | egg |
-| [A2] | Launch self-serve dashboard builder | 4/5 | 3/5 | 4/5 | 2/5 | larva |
-| [A3] | Add real-time streaming pipeline support | 3/5 | 4/5 | 3/5 | 2/5 | larva |
-| [B1] | Pivot to AI-native analytics platform | 2/5 | 3/5 | 5/5 | 3/5 | chrysalis |
-| [B2] | Open-source the core engine | 2/5 | 3/5 | 5/5 | 4/5 | emergence |
+| [A1] | Ship a first-party MCP server that exposes Twenty to any agent | 5/5 | 4/5 | 4/5 | 2/5 | larva |
+| [A2] | In-Postgres AI enrichment as a workflow action ('Enrich this record') | 4/5 | 4/5 | 4/5 | 2/5 | larva |
+| [A3] | Agent-native views: natural language → saved View (text-to-CRM-query) | 4/5 | 3/5 | 4/5 | 2/5 | larva |
+| [A4] | Publish an 'AI account manager' starter app via create-twenty-app | 4/5 | 4/5 | 3/5 | 2/5 | larva |
+| [B1] | Metamorphosis: from system of record to open 'system of agents' | 3/5 | 4/5 | 5/5 | 4/5 | emergence |
+| [B2] | Chaos: the open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce) | 2/5 | 3/5 | 5/5 | 5/5 | imago |
+| [B3] | Chaos: 'migrate off Salesforce with an agent' — one-click importer + AI re-modeler | 3/5 | 3/5 | 4/5 | 3/5 | chrysalis |
 
 ## Track A — Realistic Moves
 
-### [A1] Integrate LLM-powered data summarization
-**Level 1 — Incremental** · Feasibility 5/5 · Evidence 4/5 · Impact 4/5 · Disruption 1/5
+### [A1] Ship a first-party MCP server that exposes Twenty to any agent
+**Level 2 — Adjacent** · Feasibility 5/5 · Evidence 4/5 · Impact 4/5 · Disruption 2/5
 
-Add an LLM summarization layer to existing dashboards that generates plain-English takeaways from chart data. This meets the growing demand for natural-language analytics without requiring a product overhaul.
+Wrap Twenty's existing GraphQL API as a Model Context Protocol server so any MCP-capable agent can search records, read objects, and (gated) write updates. This turns the 'designed for AI' claim into a concrete, standards-based surface and rides the fastest-moving integration trend without new infra.
 
-**Why now:** [Databricks ships Genie GA](https://www.databricks.com/blog/genie-ga-2026), [Snowflake Cortex NL-to-SQL launch](https://docs.snowflake.com/en/release-notes/2026-07-cortex)
-**Why us:** [Existing dashboard rendering engine](https://docs.meridian.example.com/architecture#rendering), [Enterprise customer base with BI workflows](https://meridian.example.com/customers)
-**First testable step:** Ship a prototype that generates one-paragraph summaries for the top-5 dashboard widgets using a local Llama model, A/B test with 3 pilot customers over 2 weeks.
+**Why now:** [Airweave (YC X25): 'let agents search any app'](https://github.com/airweave-ai/airweave), [PolyMCP: MCP tools + autonomous agents + orchestration](https://news.ycombinator.com/item?id=47061490)
+**Why us:** [Tech stack: GraphQL API on NestJS/TypeScript (README Stack)](https://github.com/twentyhq/twenty), [Stated strategy: 'designed for AI', agents as a primitive](https://docs.twenty.com/developers/introduction)
+**First testable step:** In 2 weeks: build a read-only MCP server wrapping the GraphQL API (tools: search_records, get_object, list_views), dogfood it in Cursor/Claude, and open a PR to modelcontextprotocol/servers with Twenty listed.
 
-### [A2] Launch self-serve dashboard builder
+### [A2] In-Postgres AI enrichment as a workflow action ('Enrich this record')
+**Level 2 — Adjacent** · Feasibility 4/5 · Evidence 4/5 · Impact 4/5 · Disruption 2/5
+
+Add an 'Enrich' workflow action that uses an LLM to fill missing company/contact fields from public data and writes back to the Postgres row. Enrichment is a core CRM job being re-platformed onto agents + the database — and Twenty already runs on Postgres, so this is differentiated and native rather than a third-party bolt-on.
+
+**Why now:** [PgCortex: AI enrichment per Postgres row, zero txn blocking](https://github.com/supreeth-ravi/pgcortex), [Ask HN: AI agents for data/email enrichment vs Apollo/RocketReach](https://news.ycombinator.com/item?id=41340442)
+**Why us:** [Tech stack: PostgreSQL backend (README Stack)](https://github.com/twentyhq/twenty), [Offering: workflows are a core building block](https://twenty.com/product)
+**First testable step:** Ship a flagged 'Enrich' action on the Company object: on trigger, an LLM proposes values for empty fields with source links; a human approves before write-back. Measure fill-rate and correction rate on 50 records.
+
+### [A3] Agent-native views: natural language → saved View (text-to-CRM-query)
 **Level 2 — Adjacent** · Feasibility 4/5 · Evidence 3/5 · Impact 4/5 · Disruption 2/5
 
-Expose a drag-and-drop dashboard builder to end users, reducing the bottleneck on Meridian's professional services team. Competitive pressure from Metabase and Preset is accelerating demand for self-serve tooling.
+Add an 'Ask' command that turns a plain-English question ('deals closing this month with no activity in 14 days') into a saved View via GraphQL filters — not free-form SQL. Views are already a core primitive; this makes them conversational and matches how practitioners are starting to drive their CRM by prompt.
 
-**Why now:** [Metabase 1.0 with embedded analytics SDK](https://www.metabase.com/blog/metabase-1-0), [Preset (Apache Superset) raises Series C](https://techcrunch.com/2026/06/preset-series-c)
-**Why us:** [Existing chart component library](https://docs.meridian.example.com/charts), [Professional services backlog indicates demand](https://meridian.example.com/about#ps-team)
-**First testable step:** Build a minimal editor that lets users compose 3 chart types (bar, line, table) from pre-built data models; dogfood internally for 2 weeks.
+**Why now:** [Ask HN: an AI agent running CRM follow-ups in prod (200 msg)](https://news.ycombinator.com/item?id=45090740), [Airweave: agents searching across app data](https://github.com/airweave-ai/airweave)
+**Why us:** [Offering: views are a core building block extended as code](https://twenty.com/product), [Tech stack: GraphQL filter layer already exists](https://github.com/twentyhq/twenty)
+**First testable step:** Ship a read-only 'Ask' palette that maps a question to GraphQL view filters and previews the result set before saving. Constrain to existing fields/operators (no raw SQL) to keep it safe.
 
-### [A3] Add real-time streaming pipeline support
-**Level 2 — Adjacent** · Feasibility 3/5 · Evidence 4/5 · Impact 3/5 · Disruption 2/5
+### [A4] Publish an 'AI account manager' starter app via create-twenty-app
+**Level 2 — Adjacent** · Feasibility 4/5 · Evidence 4/5 · Impact 3/5 · Disruption 2/5
 
-Extend the data pipeline to ingest streaming sources (Kafka, Kinesis) alongside batch. Real-time dashboards are table-stakes for observability-adjacent analytics customers.
+Ship an official example app that drafts follow-ups and logs activities for stale deals, scaffolded with create-twenty-app. It showcases the apps SDK and agents primitive with a use case the market has already validated commercially, and gives developers a copyable pattern.
 
-**Why now:** [Confluent launches Tableflow for analytics](https://www.confluent.io/blog/tableflow-analytics-2026), [Grafana adds streaming SQL queries](https://grafana.com/blog/2026/07/streaming-sql)
-**Why us:** [Batch pipeline architecture extensible to streaming](https://docs.meridian.example.com/architecture#pipeline), [Observability customers requesting real-time views](https://meridian.example.com/roadmap#streaming)
-**First testable step:** Deploy a Kafka consumer that writes to the existing warehouse in micro-batches (5-second windows); demo latency improvement to 2 pilot accounts.
+**Why now:** [Gradient Labs: an AI account manager per bank customer](https://openai.com/index/gradient-labs), [Klarna's AI assistant does the work of 700 agents](https://openai.com/index/klarna)
+**Why us:** [Differentiator: apps SDK + create-twenty-app (CRM-as-code)](https://github.com/twentyhq/twenty), [Stated strategy: agents as a first-class primitive](https://docs.twenty.com/developers/introduction)
+**First testable step:** Scaffold a `create-twenty-app` template 'deal-nudger': finds deals with no activity in N days, drafts a follow-up email, and logs a task. Ship it as a documented example app in the developer docs.
 
 ## Track B — Chaos / Metamorphosis
 
-### [B1] Pivot to AI-native analytics platform
-**Level 3 — New line** · Feasibility 2/5 · Evidence 3/5 · Impact 5/5 · Disruption 3/5
+### [B1] Metamorphosis: from system of record to open 'system of agents'
+**Level 4 — Model shift** · Feasibility 3/5 · Evidence 4/5 · Impact 5/5 · Disruption 4/5
 
-Redesign the product from the ground up as an AI-native analytics platform where the primary interface is a conversational agent, not dashboards. The current dashboard-centric model may be obsoleted by LLM interfaces within 18 months.
+Reframe Twenty so every object can be assigned an agent workforce that does the work (enrich, follow up, summarize, route), with the record as the audit trail rather than the product. The CRM stops being a database you fill in and becomes a team you manage — the boldest expression of 'designed for AI', done in the open.
 
-**Why now:** [Microsoft Copilot Analytics preview](https://blogs.microsoft.com/2026/07/copilot-analytics), [Y Combinator S26 batch: 40% analytics-AI startups](https://news.ycombinator.com/item?id=41234567)
-**Why us:** [Deep warehouse integration layer](https://docs.meridian.example.com/architecture#warehouse), [Enterprise trust and SOC 2 compliance](https://meridian.example.com/security)
-**Metamorphosis narrative:** Before: Meridian is a dashboard platform where analysts build views for stakeholders. After: Meridian is an AI analyst that answers questions directly, with dashboards generated on-the-fly as supporting evidence. The organization shifts from a visualization company to a decision-intelligence company.
-**Kill criteria:** If pilot users revert to manual dashboard creation for >60% of their queries within 4 weeks, the conversational interface is not replacing the dashboard paradigm and this pivot should be abandoned.
+**Why now:** [QRev: OSS AI-first Salesforce alternative built on agents](https://github.com/qrev-ai/qrev), [Budibase Agents: model-agnostic agents for internal workflows](https://budibase.com/blog/updates/ai-agents-beta/), [Netomi: scaling agentic systems into the enterprise](https://openai.com/index/netomi)
+**Why us:** [Stated strategy: agents as a first-class CRM primitive](https://docs.twenty.com/developers/introduction), [Differentiator: CRM-as-code (objects/views/workflows as code)](https://github.com/twentyhq/twenty)
+**Metamorphosis narrative:** Egg → imago: today agents are a feature bolted beside objects; the metamorphosis makes an assignable agent the default unit of work attached to every object, with records demoted to the log. Twenty ships the reference implementation of an open 'system of agents' while incumbents keep selling systems of record.
+**Kill criteria:** If fewer than ~15% of active workspaces assign at least one agent to an object within two quarters of GA, revert to agents-as-feature and stop the reframe.
 
-### [B2] Open-source the core engine
-**Level 4 — Model shift** · Feasibility 2/5 · Evidence 3/5 · Impact 5/5 · Disruption 4/5
+### [B2] Chaos: the open CRM data-plane — bring-your-own-agent via MCP (anti-Agentforce)
+**Level 5 — Metamorphosis** · Feasibility 2/5 · Evidence 3/5 · Impact 5/5 · Disruption 5/5
 
-Release the core analytics engine under an open-source license (Apache 2.0 or BSL) and build a commercial offering around managed hosting, enterprise features, and support. This captures the developer analytics market before Metabase and Grafana converge on it.
+Publish a stable MCP contract and position Twenty as the open, self-hostable data-plane that any third party's agents plug into — the opposite of Salesforce Agentforce's walled garden. Competitors monetize a closed agent runtime; Twenty wins by being the neutral, ownable substrate agents build on.
 
-**Why now:** [Grafana Labs valued at $12B on OSS model](https://techcrunch.com/2026/06/grafana-12b-valuation), [HashiCorp BSL pivot triggers OSS-first demand wave](https://www.hashicorp.com/blog/bsl-retrospective-2026)
-**Why us:** [Modular engine architecture separable from cloud platform](https://docs.meridian.example.com/architecture#engine), [Small but loyal developer community on forums](https://community.meridian.example.com/stats)
-**Metamorphosis narrative:** Before: Meridian is a proprietary SaaS analytics tool competing on features with other closed platforms. After: Meridian becomes the default open-source analytics engine (the 'PostgreSQL of analytics'), monetizing through a managed cloud offering and enterprise add-ons. Revenue shifts from per-seat licenses to consumption-based cloud pricing.
-**Kill criteria:** If GitHub stars remain under 2,000 and external contributor PRs average fewer than 5 per month after 6 months, community traction is insufficient to sustain the open-source strategy.
+**Why now:** [Airweave: 'let agents search any app' (BYO-agent demand)](https://github.com/airweave-ai/airweave), [PolyMCP: MCP tooling + orchestration momentum](https://news.ycombinator.com/item?id=47061490)
+**Why us:** [Business model: OSS core + free self-host (ownable, neutral)](https://twenty.com/pricing), [Tech stack: GraphQL API to expose as an open MCP contract](https://github.com/twentyhq/twenty)
+**Metamorphosis narrative:** Larva → imago: start from the first-party MCP server (A1), then harden it into a versioned public contract with auth, scopes, and webhooks so external agent platforms treat a self-hosted Twenty as their CRM backend. The moat is openness + self-hostability, which incumbents structurally cannot match.
+**Kill criteria:** If no third-party agent platform integrates against the published MCP contract within two quarters, fold the effort back into first-party-only use (A1) and drop the marketplace framing.
+
+### [B3] Chaos: 'migrate off Salesforce with an agent' — one-click importer + AI re-modeler
+**Level 3 — New line** · Feasibility 3/5 · Evidence 3/5 · Impact 4/5 · Disruption 3/5
+
+Meet the incumbent-disruption moment head-on: an agent that ingests a Salesforce export, proposes a Twenty object/field schema (CRM-as-code), and generates the migration — turning 'I want off Salesforce' into a guided afternoon. This weaponizes CRM-as-code as an acquisition wedge.
+
+**Why now:** [HN: 'Salesforce, SAP, or ServiceNow — which is ripe for disruption?'](https://news.ycombinator.com/item?id=46601662), [Ask HN: 'Easier Alternative to Salesforce?' (recurring demand)](https://news.ycombinator.com/item?id=43260459)
+**Why us:** [Differentiator: define objects/fields/views as code (twenty-sdk)](https://github.com/twentyhq/twenty), [Users: technical teams who build/version their CRM like code](https://twenty.com/why-twenty)
+**Metamorphosis narrative:** Chrysalis: an agent maps a foreign schema to Twenty's code-defined objects, then emits the migration as reviewable code (diff-able, versioned) rather than an opaque import. Migration becomes a developer artifact, not a services engagement.
+**Kill criteria:** If beta migration completion rate stays below ~40% (users abandon mid-flow), narrow scope to data-only import and drop the schema re-modeling agent.
 
 ## Deep Dive — Digest Themes
 
-### LLM Integration Wave Hits Enterprise Analytics
+### Open-source CRMs are converging on 'AI-agent-native'
 
-Three major analytics platforms shipped natural-language query features this quarter. [Databricks Genie](https://www.databricks.com/blog/genie-ga-2026) went GA with SQL generation, [Snowflake Cortex](https://docs.snowflake.com/en/release-notes/2026-07-cortex) launched NL-to-SQL for all Enterprise accounts, and [Microsoft Copilot Analytics](https://blogs.microsoft.com/2026/07/copilot-analytics) entered public preview. The convergence suggests NL analytics is becoming table-stakes rather than a differentiator.
+The OSS CRM/GTM category is racing to make AI agents a built-in primitive, not an add-on — exactly Twenty's stated posture, now contested by newer entrants like QRev, Auxx.ai, and Budibase Agents.
 
-Sources: [Databricks Genie GA](https://www.databricks.com/blog/genie-ga-2026), [Snowflake Cortex](https://docs.snowflake.com/en/release-notes/2026-07-cortex), [Microsoft Copilot Analytics](https://blogs.microsoft.com/2026/07/copilot-analytics)
+Sources: [QRev — OSS AI-first Salesforce alternative with agents](https://github.com/qrev-ai/qrev), [Auxx.ai — support CRM = 'Attio + n8n'](https://auxx.ai), [Budibase Agents (Beta)](https://budibase.com/blog/updates/ai-agents-beta/)
 
-### Open Source Analytics Gains Momentum
+### MCP is becoming the integration substrate for agents
 
-[Grafana Labs hit $12B valuation](https://techcrunch.com/2026/06/grafana-12b-valuation) proving the OSS analytics model works at scale. [Metabase 1.0](https://www.metabase.com/blog/metabase-1-0) shipped its embedded analytics SDK, making it trivial to white-label analytics into other products. Meanwhile, [HashiCorp's BSL retrospective](https://www.hashicorp.com/blog/bsl-retrospective-2026) showed that open-core companies retain developer trust better than proprietary-first competitors.
+The Model Context Protocol is emerging as the standard way agents read/write external apps. For a CRM, being an MCP server (expose data) and host (reach tools) is fast becoming table stakes.
 
-Sources: [Grafana $12B](https://techcrunch.com/2026/06/grafana-12b-valuation), [Metabase 1.0](https://www.metabase.com/blog/metabase-1-0), [HashiCorp BSL retrospective](https://www.hashicorp.com/blog/bsl-retrospective-2026)
+Sources: [Airweave — let agents search any app](https://github.com/airweave-ai/airweave), [PolyMCP — MCP tools + orchestration](https://news.ycombinator.com/item?id=47061490), [GodHands — deterministic desktop automation via MCP](https://news.ycombinator.com/item?id=46996023)
 
-### Real-Time Data Processing Goes Mainstream
+### Data enrichment is being re-platformed onto agents + Postgres
 
-[Confluent launched Tableflow](https://www.confluent.io/blog/tableflow-analytics-2026) bridging streaming and analytics workloads in a single product. [Grafana added streaming SQL](https://grafana.com/blog/2026/07/streaming-sql) to its query engine, and the [Y Combinator S26 batch](https://news.ycombinator.com/item?id=41234567) featured several real-time analytics startups. The boundary between operational and analytical data continues to blur.
+Contact/company enrichment — a core CRM job — is shifting from third-party APIs (Clearbit/Apollo) toward agentic + in-database approaches. Twenty runs on PostgreSQL, so in-row enrichment is a natural, differentiated surface.
 
-Sources: [Confluent Tableflow](https://www.confluent.io/blog/tableflow-analytics-2026), [Grafana streaming SQL](https://grafana.com/blog/2026/07/streaming-sql), [YC S26 batch](https://news.ycombinator.com/item?id=41234567)
+Sources: [PgCortex — AI enrichment per Postgres row](https://github.com/supreeth-ravi/pgcortex), [Ask HN — agentic enrichment vs Apollo/RocketReach](https://news.ycombinator.com/item?id=41340442), [AgentWeb — business directory API for agents](https://agentweb.live)
+
+### Enterprises are operationalizing agentic customer-facing work
+
+The clearest revenue proof points are customer-facing agents (support, account management), validating a 'CRM that does the work, not just stores it' direction.
+
+Sources: [Klarna — AI assistant does the work of 700 agents](https://openai.com/index/klarna), [Gradient Labs — an AI account manager per customer](https://openai.com/index/gradient-labs), [Parloa — service agents customers want to talk to](https://openai.com/index/parloa)
+
+### The incumbent-disruption narrative is loud — open/AI-native is the wedge
+
+Market discourse explicitly asks which system-of-record incumbents fall first and whether non-AI SaaS is sellable — a tailwind for an open, AI-native CRM.
+
+Sources: [HN — Salesforce/SAP/ServiceNow: ripe for disruption?](https://news.ycombinator.com/item?id=46601662), [Ask HN — how to sell SaaS without AI features in 2026?](https://news.ycombinator.com/item?id=47023609), [Ask HN — OSS alternative to almost any SaaS](https://news.ycombinator.com/item?id=41979332)
 
 ## Provenance
 
-Scanned **42** items from **8** sources, **12** relevant.
-Soft-failed sources: reddit_rss
-Run files: `runs/sample/items.jsonl`, `runs/sample/tagged.jsonl`, `runs/sample/digest.md`
+Scanned **2376** items from **6** sources, **329** relevant.
+Soft-failed sources: github releases (0 items — unauthenticated shared-IP rate limit), reddit_rss (0 items — feed blocked/empty this run)
+Run files: `runs/2026-07-04/items.jsonl`, `runs/2026-07-04/digest.md`, `runs/2026-07-04/report.json`
