@@ -62,6 +62,7 @@ def run(
     tier2 = cfg.get("tier2", {}) or {}
     all_items: list[Item] = []
     soft_failed: list[str] = []
+    setup_warnings: list[str] = []
 
     # Each source is wrapped so one failure never sinks the run.
     def _safe(source_key: str, fn) -> None:
@@ -71,11 +72,13 @@ def run(
             all_items.extend(got)
             state.mark_source_success(source_key)
         except Exception as e:  # noqa: BLE001 - deliberate: soft-fail any source
+            if type(e).__name__ == "AgentReachConfigurationError":
+                setup_warnings.append(str(e))
             _log(f"{source_key}: SOFT-FAIL {e}")
             soft_failed.append(source_key)
 
     # Import lazily so a broken/unimplemented source can't stop the others at import time.
-    from scout.sources import github_api, github_trending, hn_algolia, ossinsight, rss
+    from scout.sources import github_api, github_trending, hn_algolia, ossinsight, rss, reach_social
 
     hn_queries = tier2.get("hn_queries") or []
     watchlist = tier2.get("github_watchlist") or []
@@ -89,6 +92,7 @@ def run(
     _safe("github_trending", lambda: github_trending.fetch(tier2.get("trending_languages"), state))
     _safe("hn", lambda: hn_algolia.fetch(hn_queries, state, since_epoch=cutoff_epoch))
     _safe("ossinsight", lambda: ossinsight.fetch(tier2.get("ossinsight_languages"), state))
+    _safe("reach_social", lambda: reach_social.fetch(tier2, state))
 
     # Recency filter: drop items older than the window (undated items kept;
     # seen-state still dedups them across runs).
@@ -113,6 +117,7 @@ def run(
         "lookback_days": days,
         "cutoff": cutoff_dt.strftime("%Y-%m-%d"),
         "soft_failed": soft_failed,
+        "setup_warnings": setup_warnings,
         "items_path": os.path.relpath(out_path, REPO_ROOT),
     }
     _log(

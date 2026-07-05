@@ -24,7 +24,7 @@ in repo files.
 - **Living memory** — a cited compiled-truth summary plus an append-only timeline; drop in new material and it *diffs and re-ranks*, never rebuilds. The repo is the memory.
 - **Grounded by design** — every recommendation cites a real trend (*why-now*) and a real company fact (*why-us*), behind a self-check gate. No uncited claims.
 - **Efficient, incremental runs** — ETag conditional fetches + a seen-cache + a recency window; each run only processes what's *new*, and re-running weekly just catches up.
-- **Keyless & portable** — no database, no pip, no API keys in the core path; runs in any agentic IDE (Devin, Cursor, Claude Code, Copilot, Gemini CLI).
+- **Keyless & portable** — no database, no API keys in the core path; runs in any agentic IDE (Devin, Cursor, Claude Code, Copilot, Gemini CLI).
 - **Outlook-ready delivery** — emits `.md` + `.html` + a double-click `.eml` draft (nothing auto-sends); optional Composio Gmail draft.
 - **Enterprise-extensible** — Tier-1 adapters (X, Reddit, SharePoint, Greptile) scaffolded behind one interface; turning one on is config, not a rebuild.
 - **Fails honestly** — blocked sources are skipped and named in a provenance block; a zero-novelty run says so instead of padding.
@@ -34,7 +34,7 @@ in repo files.
 ## Setup (~5 minutes)
 
 **Requirements:** Python 3.10+ on PATH; an agentic IDE with terminal + web tools;
-outbound HTTPS (443) to ~10 public source domains. That's it — no pip installs, no keys.
+outbound HTTPS (443) to ~10 public source domains. That's it — no keys required.
 
 1. `git clone https://github.com/situhacks/ai-chaos-scout.git` and open the folder in
    your IDE.
@@ -89,7 +89,7 @@ subject material    ->   lens drives keyless    ->   digest × compiled truth
 ```
 
 **Scripts fetch, the agent judges.** Deterministic mechanics (fetch, parse, dedup,
-state, render) live in `scout/` (stdlib-only Python); all judgment (summarize, distill
+state, render) live in `scout/` (Python pipeline); all judgment (summarize, distill
 the lens, tag relevance, recommend) lives in the agent. The product cannot exist
 non-agentically.
 
@@ -109,7 +109,7 @@ rebuild). They raise `AdapterNotConfigured` when their env vars are unset.
 ## Deployment assumptions
 
 - Agentic IDE seat with Agent + terminal enabled; outbound HTTPS to the source domains.
-- Python 3.10+ on PATH; **no pip** (corporate proxies break it — the runtime is stdlib-only).
+- Python 3.10+ on PATH; (install requirements via `pip install -r requirements.txt`).
 - `.cursor/` writable at install/commit time (enterprise may lock it afterward — humans
   commit, the agent reads).
 - GitHub unauth budget (60 req/hr) is shared per egress IP — the ETag discipline exists
@@ -118,7 +118,7 @@ rebuild). They raise `AdapterNotConfigured` when their env vars are unset.
 ## Repo layout
 
 See `AGENTS.md` for the full state-file map. Key directories: `config/` (subject +
-sources), `knowledge/` (compiled-truth summary + lens), `scout/` (stdlib pipeline +
+sources), `knowledge/` (compiled-truth summary + lens), `scout/` (data pipeline +
 adapters + templates), `state/` (seen/etags/last-run), `runs/{date}/` (per-run work),
 `reports/` (deliverables), `docs/` (rubric, design language, Composio).
 

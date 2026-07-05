@@ -1,77 +1,81 @@
 {
   "https://api.github.com/repos/browser-use/browser-use/releases": {
-    "etag": "W/\"172613e0737ad5dd9a142595a97511b512a320333df9661f3b7767dd9d3c0d46\""
+    "etag": "W/\"3c8b9c3990f3aed256bb57934007a00dd92acc535f2ef3d3da9c8beebd06573d\""
   },
   "https://api.github.com/repos/calcom/cal.com/releases": {
-    "etag": "W/\"0cd3780d8cd0fce7b1112cbecaeaa3548c8e6bdc92da7c737668428053e9875c\""
+    "etag": "W/\"c8e469f3e390e5261f3d61d1c7e008694c21a33fff3c2a02e52749a408bebd45\""
   },
   "https://api.github.com/repos/documenso/documenso/releases": {
-    "etag": "W/\"74a777a7aeb1479bb32af0339563df4f9b3168d22c307d4ffe9ce89d05342981\""
+    "etag": "W/\"08c98ae437460b2043ece2c18e2131fc932f84419ede7f721e62396d08977d30\""
   },
   "https://api.github.com/repos/facebook/react/releases": {
-    "etag": "W/\"57aaebe419a1831938a23397ecb76923b7ec9993648994cfa48cdcb958221f2f\""
+    "etag": "W/\"eeacbc49d3eb6a6dd21f33d420e355bc2c2f1355eafec6d7902933a442629f7c\""
   },
   "https://api.github.com/repos/graphql/graphql-js/releases": {
-    "etag": "W/\"7e5b0f3552509d1e0dfacfda9be43b7a48e30de8729b0d586ce11fe0dc1bb74b\""
+    "etag": "W/\"7b2a44e583e8b769d6e461f34f424476c91b099d0da7cf960acc1789f4ce2877\""
   },
   "https://api.github.com/repos/langchain-ai/langchainjs/releases": {
-    "etag": "W/\"44cf53f1d61dcf386f70f13a820404339cc0756ed95e783cc283c82cec10df24\""
+    "etag": "W/\"8dc1f5418c51f91a2d4221bf54e2878b632da797499121e2cce4c0510b67575b\""
   },
   "https://api.github.com/repos/lingui/js-lingui/releases": {
-    "etag": "W/\"3b93fe7b462218854a6767393c5fbdac7eb88810e1a7732b52f5692d9ba7881b\""
+    "etag": "W/\"0fa1dce4d3327bde3d85b1afabbcd5fb5c158310226bf31c4f7dce34a2c08598\""
   },
   "https://api.github.com/repos/modelcontextprotocol/servers/releases": {
-    "etag": "W/\"a1d8d628efc30d802322fde82412f6837aa585a869cb0e12686dc904fb0e7d71\""
+    "etag": "W/\"697a2e98adda9c6d3d216819165e6c6205efd691aeed52d76e93b1be79d0f6ec\""
   },
   "https://api.github.com/repos/n8n-io/n8n/releases": {
-    "etag": "W/\"c219962bef6b9a9dff9ceaa581b1f15e0fe8e256f16e61f2d71c97e1eeda6615\""
+    "etag": "W/\"3aed1c20d6962ad60dace9c4628406c3a5633ec36b8f44e4cf6d2d9107c78b8e\""
   },
   "https://api.github.com/repos/nestjs/nest/releases": {
-    "etag": "W/\"d4963f79f629beb2b496ff72e91e52c465437eb5a43b2430e47804b24e036e50\""
+    "etag": "W/\"431b07dddc3ace77c7474587d7583bdac7ba96168f60c2aeb29b5d8454393624\""
   },
   "https://api.github.com/repos/ollama/ollama/releases": {
-    "etag": "W/\"4558260eb4806181586435783d99653a87a2e6658385294987806e74f4c577fd\""
+    "etag": "W/\"2df03cc52921f69fd697b2ae74ffd332d6841c3645ee478a4a3b722e280d7200\""
   },
   "https://api.github.com/repos/pgvector/pgvector/releases": {
-    "etag": "\"b08b510b4063bb0446834760ac32edf211c8c95f8424caed240b0ad48e5c748a\""
+    "etag": "\"74d1db57f0fec3481bb6b4d9bcdc020d656635ec6c53ee589d27a8831cbbe280\""
   },
   "https://api.github.com/repos/pmndrs/jotai/releases": {
-    "etag": "W/\"0853884e558ada7df5791d072be9e9a4bc91cc0f6242116fe5934f647a656c2f\""
+    "etag": "W/\"532f02cfa2cb8b0df2e90a320e57b303b7ddddf8117bca369e15400f61032616\""
   },
   "https://api.github.com/repos/redis/redis/releases": {
-    "etag": "W/\"b5daa41cd903430918f101a3af6a78f5fa8b2099fdd5af38a07ec2e739cdddbf\""
+    "etag": "W/\"9e3621bdcee049b023af255447465be2cda8decd40c03a07dd27cdfda7ea4d5d\""
   },
   "https://api.github.com/repos/run-llama/llama_index/releases": {
-    "etag": "W/\"3076d6080dc4b824c6313524382cca4498f97768aeff4e1b624fc1d259a12ed5\""
+    "etag": "W/\"a6b133ca526b9ae49a6fa469660b3f9ad95619f4158e0e8afb61841837c89ec9\""
   },
   "https://api.github.com/repos/supabase/supabase/releases": {
-    "etag": "W/\"ffcd630b72878a7bca22a9072ad0e3ae32d9e0241b0c33fb39c895a2a98775a0\""
+    "etag": "W/\"b0dcd83c2be4adcfe80032a6db95a8bd641395e1f205d4a7d96209a0d112ed4a\""
   },
   "https://api.github.com/repos/twentyhq/twenty/releases": {
-    "etag": "W/\"9ba5cafaa21b8a9998c79535349983a0bdb25f9af9ac90748b73b7d19b6e39af\""
+    "etag": "W/\"66c8593d84c7fc65ef586183408b45728f059f5d6cffa7c97c33337146a1fa13\""
   },
   "https://api.github.com/repos/typeorm/typeorm/releases": {
-    "etag": "W/\"6e8dd73646f468d117e1ef529e06b44a55d04139c39542b8a0c18ce71968f5a6\""
+    "etag": "W/\"5dbc570e30f0d18ba3fa5e84b9e7fe57efb579612811a95d701b44f13ca029c9\""
   },
   "https://api.github.com/repos/vercel/ai/releases": {
-    "etag": "W/\"10d79897615cd2139f4bbabd4703136601dc55068b2320503da7153b980b7402\""
+    "etag": "W/\"1312c7a55b9855b6241ca262cd7a8c73f1b8b55d362bbd2ed54bcb526192622d\""
   },
   "https://api.github.com/repos/vercel/next.js/releases": {
-    "etag": "W/\"3005a10e7127b59a28353df8e3d1642dbf8088e27f9852ebd237b594dbb3ca18\""
+    "etag": "W/\"7f2865d2f23affd1f7916736c843726829ec0d1260c64466999f981d176010bc\""
   },
   "https://api.ossinsight.io/v1/trends/repos/?period=past_week&language=Python": {
-    "etag": "\"1p6i09x\""
+    "etag": "\"1gtagn5\""
   },
   "https://api.ossinsight.io/v1/trends/repos/?period=past_week&language=TypeScript": {
-    "etag": "\"ggpnta\""
+    "etag": "\"10cick1\""
   },
   "https://github.com/trending/python": {
-    "etag": "W/\"ea30f7889a16e6adff65abffc0ca2077\""
+    "etag": "W/\"fc7af1989862f59964e7cc8e12fd8fbf\""
   },
   "https://huggingface.co/blog/feed.xml": {
     "etag": "W/\"3a749-HUiYgPB/Nvnp1oAF7auF1db/H7M\""
   },
   "https://rss.arxiv.org/rss/cs.AI": {
-    "etag": "5951faa50aae9e47d4298c326ec6b9e970aef51e63c62adfc1dc7b778df2b6c9"
+    "etag": "8b343ef38686947b1801033a65f573227b53dbfa95d1cb1a7477a4b7392ff3c4"
+  },
+  "https://www.marktechpost.com/feed/": {
+    "etag": "W/\"1c877107609fe6582e31a22fe22164eb\"",
+    "last_modified": "Sun, 05 Jul 2026 03:02:10 GMT"
   }
 }

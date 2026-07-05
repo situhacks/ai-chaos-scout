@@ -64,6 +64,14 @@ tier2:
     - Python
     - TypeScript
 
+  # agent-reach Job & Social Search (Powered by bundled agent_reach)
+  reach_twitter:
+    - "AI CRM jobs"
+    - "open source CRM hiring"
+  reach_bilibili:
+    - "AI CRM"
+
+
   # GitHub Trending languages (best-effort HTML scrape; may break silently).
   trending_languages:
     - python

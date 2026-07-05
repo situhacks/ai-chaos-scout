@@ -156,11 +156,12 @@ subject material is detected). Full per-command specs live in `.cursor/commands/
    ```
    Then invoke: `python scout/render_report.py --input runs/{today}/report.json`
    → produces `reports/chaos-report-{today}.md` + `.html` + `.eml`.
-5. **(Optional) Composio delivery:** if the Composio MCP is connected, create a Gmail
+5. **Check for Setup Warnings:** If the `soft_failed` or terminal output contains `setup_warnings` (such as missing logins for `agent-reach` channels), you MUST explicitly communicate these setup steps to the user in your final response (e.g., "I skipped Twitter because you need to log in. Please run X...").
+6. **(Optional) Composio delivery:** if the Composio MCP is connected, create a Gmail
    **draft** (`GMAIL_CREATE_EMAIL_DRAFT`, `is_html:true`) from the rendered `.html`.
    **Draft only — NEVER call `GMAIL_SEND_DRAFT`.** Everything works without Composio;
    the `.eml` file is the zero-dependency fallback (double-click → mail client draft).
-6. Present the user the TL;DR block and the file paths.
+7. Present the user the TL;DR block and the file paths.
 
 ## State-file map (the memory)
 
@@ -196,8 +197,7 @@ recommendations unchanged from last run") and do NOT fabricate novelty to fill s
 
 1. **Tier 2 = zero keys, zero signups, zero paid services.** Stdlib Python + your
    built-in tools only.
-2. **Stdlib-only Python (3.10+)** in the runtime path — no pip installs (corporate
-   proxies break pip). Use `urllib`, `xml.etree`, `json`, `html.parser`.
+2. **Python 3.10+ runtime** with dependencies defined in `requirements.txt`. (Install them before running).
 3. **No MCP / cloud-agents / third-party extensions in the core path** — the ONE
    sanctioned exception is **Composio** as an optional delivery layer (`docs/composio.md`);
    everything must work with Composio absent.
