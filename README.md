@@ -11,9 +11,23 @@ Code, Copilot, Gemini CLI) and the resident agent becomes a weekly "chaos briefi
 analyst. No backend, no database, **no API keys in the core path** — all memory lives
 in repo files.
 
-> ⚠️ Hackathon build ("Agents of Chaos"). The scout engine and report renderer are being
-> filled in by parallel workstreams; the repo skeleton, contracts, agent manual, and
-> stdlib pipeline wiring are in place. See `AGENTS.md` for the operating manual.
+> ⚠️ Hackathon build ("Agents of Chaos"). The full pipeline runs end-to-end — see a real
+> generated run for **Twenty** (the open-source CRM) under `runs/` and `docs/example-run/`.
+> See `AGENTS.md` for the operating manual.
+
+---
+
+## Key Features
+
+- **Lens-first** — reads what the company *is* before scanning the industry, so every finding is scoped to that company, not generic AI news.
+- **Two-track recommendations** — realistic moves *and* metamorphosis-level "chaos" plays, each scored on four 1–5 sliders (feasibility, evidence, impact, disruption).
+- **Living memory** — a cited compiled-truth summary plus an append-only timeline; drop in new material and it *diffs and re-ranks*, never rebuilds. The repo is the memory.
+- **Grounded by design** — every recommendation cites a real trend (*why-now*) and a real company fact (*why-us*), behind a self-check gate. No uncited claims.
+- **Efficient, incremental runs** — ETag conditional fetches + a seen-cache + a recency window; each run only processes what's *new*, and re-running weekly just catches up.
+- **Keyless & portable** — no database, no pip, no API keys in the core path; runs in any agentic IDE (Devin, Cursor, Claude Code, Copilot, Gemini CLI).
+- **Outlook-ready delivery** — emits `.md` + `.html` + a double-click `.eml` draft (nothing auto-sends); optional Composio Gmail draft.
+- **Enterprise-extensible** — Tier-1 adapters (X, Reddit, SharePoint, Greptile) scaffolded behind one interface; turning one on is config, not a rebuild.
+- **Fails honestly** — blocked sources are skipped and named in a provenance block; a zero-novelty run says so instead of padding.
 
 ---
 
